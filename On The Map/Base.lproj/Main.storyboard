@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +26,187 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udacity" translatesAutoresizingMaskIntoConstraints="NO" id="P8S-Me-XDh">
+                                <rect key="frame" x="16" y="20" width="568" height="201"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7oC-HQ-LZs" customClass="LoginTextField" customModule="On_The_Map" customModuleProvider="target">
+                                <rect key="frame" x="16" y="283" width="568" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="D3q-NJ-bBc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOX-Ka-ZKo" customClass="LoginTextField" customModule="On_The_Map" customModuleProvider="target">
+                                <rect key="frame" x="16" y="331" width="568" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mRK-TZ-Ts0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm7-Jz-WuH">
+                                <rect key="frame" x="16" y="540" width="568" height="40"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.23921568627450981" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Uoo-XE-Btf"/>
+                                </constraints>
+                                <state key="normal" title="Sign in with Facebook">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInWithFacebookButtonTouchUpInside:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CQ0-nU-1O0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9k-tn-mzK">
+                                <rect key="frame" x="16" y="229" width="568" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="WGp-mP-yrG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWl-eM-bUd">
+                                <rect key="frame" x="16" y="427" width="199" height="23"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNu-Bq-8ib">
+                                <rect key="frame" x="16" y="379" width="568" height="40"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.49019607843137253" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTouchUpInside:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="C65-mx-h9d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAZ-nD-YuX">
+                                <rect key="frame" x="223" y="418" width="84" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="QMP-si-CY2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpButtonTouchUpInside:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bZi-Qc-6pK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.60392156862745094" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Zm7-Jz-WuH" secondAttribute="bottom" constant="20" symbolic="YES" id="00v-iY-wbW"/>
+                            <constraint firstItem="OOX-Ka-ZKo" firstAttribute="trailing" secondItem="aNu-Bq-8ib" secondAttribute="trailing" id="6Ob-iV-lo2"/>
+                            <constraint firstItem="zWl-eM-bUd" firstAttribute="top" secondItem="aNu-Bq-8ib" secondAttribute="bottom" constant="8" symbolic="YES" id="A6j-qP-21B"/>
+                            <constraint firstItem="P8S-Me-XDh" firstAttribute="leading" secondItem="l9k-tn-mzK" secondAttribute="leading" id="Ch6-2b-2CD"/>
+                            <constraint firstItem="l9k-tn-mzK" firstAttribute="top" secondItem="P8S-Me-XDh" secondAttribute="bottom" constant="8" symbolic="YES" id="G8g-1R-1Iz"/>
+                            <constraint firstItem="7oC-HQ-LZs" firstAttribute="leading" secondItem="OOX-Ka-ZKo" secondAttribute="leading" id="GKJ-PZ-nJe"/>
+                            <constraint firstItem="aNu-Bq-8ib" firstAttribute="top" secondItem="OOX-Ka-ZKo" secondAttribute="bottom" constant="8" symbolic="YES" id="N7A-74-QVa"/>
+                            <constraint firstItem="7oC-HQ-LZs" firstAttribute="trailing" secondItem="l9k-tn-mzK" secondAttribute="trailing" id="O7i-ya-WNz"/>
+                            <constraint firstItem="zWl-eM-bUd" firstAttribute="leading" secondItem="aNu-Bq-8ib" secondAttribute="leading" id="Q4y-OR-Bd7"/>
+                            <constraint firstItem="Zm7-Jz-WuH" firstAttribute="top" secondItem="vAZ-nD-YuX" secondAttribute="bottom" constant="81" id="RS5-nh-6cC"/>
+                            <constraint firstItem="vAZ-nD-YuX" firstAttribute="leading" secondItem="zWl-eM-bUd" secondAttribute="trailing" constant="8" symbolic="YES" id="Th3-vZ-Ptn"/>
+                            <constraint firstItem="7oC-HQ-LZs" firstAttribute="top" secondItem="l9k-tn-mzK" secondAttribute="bottom" constant="8" symbolic="YES" id="U6M-tR-EpP"/>
+                            <constraint firstItem="P8S-Me-XDh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="USs-hs-Bmk"/>
+                            <constraint firstItem="Zm7-Jz-WuH" firstAttribute="leading" secondItem="zWl-eM-bUd" secondAttribute="leading" id="X4l-jK-7jA"/>
+                            <constraint firstItem="l9k-tn-mzK" firstAttribute="leading" secondItem="7oC-HQ-LZs" secondAttribute="leading" id="XPa-d0-gU8"/>
+                            <constraint firstItem="vAZ-nD-YuX" firstAttribute="baseline" secondItem="zWl-eM-bUd" secondAttribute="baseline" id="Y0U-Ub-2ag"/>
+                            <constraint firstItem="l9k-tn-mzK" firstAttribute="trailing" secondItem="P8S-Me-XDh" secondAttribute="trailing" id="ZFF-ZS-oj1"/>
+                            <constraint firstItem="OOX-Ka-ZKo" firstAttribute="leading" secondItem="aNu-Bq-8ib" secondAttribute="leading" id="ZaF-7T-IBJ"/>
+                            <constraint firstItem="l9k-tn-mzK" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="acR-Vq-Oi1"/>
+                            <constraint firstItem="Zm7-Jz-WuH" firstAttribute="top" secondItem="zWl-eM-bUd" secondAttribute="bottom" constant="90" id="fm4-X8-dkj"/>
+                            <constraint firstItem="aNu-Bq-8ib" firstAttribute="trailing" secondItem="Zm7-Jz-WuH" secondAttribute="trailing" id="gRG-1U-giT"/>
+                            <constraint firstItem="OOX-Ka-ZKo" firstAttribute="top" secondItem="7oC-HQ-LZs" secondAttribute="bottom" constant="8" symbolic="YES" id="gyV-pW-TkX"/>
+                            <constraint firstItem="zWl-eM-bUd" firstAttribute="baseline" secondItem="vAZ-nD-YuX" secondAttribute="firstBaseline" id="nvP-vv-xQm"/>
+                            <constraint firstItem="OOX-Ka-ZKo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="r2d-t8-rvf"/>
+                            <constraint firstItem="OOX-Ka-ZKo" firstAttribute="trailing" secondItem="7oC-HQ-LZs" secondAttribute="trailing" id="v86-bV-dNG"/>
+                            <constraint firstItem="vAZ-nD-YuX" firstAttribute="top" secondItem="OOX-Ka-ZKo" secondAttribute="bottom" constant="47" id="yMf-Ar-e6T"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="7oC-HQ-LZs" id="aGa-V2-7Uq"/>
+                        <outlet property="loginButton" destination="aNu-Bq-8ib" id="u2b-me-C4b"/>
+                        <outlet property="passwordTextField" destination="OOX-Ka-ZKo" id="fk2-LB-VPw"/>
+                        <outlet property="signInWithFacebookButton" destination="Zm7-Jz-WuH" id="cyY-bK-2o5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--In The List-->
+        <scene sceneID="hmY-cq-udu">
+            <objects>
+                <viewController id="vcR-j3-ayB" customClass="ListViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mjz-Ep-ufh"/>
+                        <viewControllerLayoutGuide type="bottom" id="dvh-gO-56p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oaE-12-bee">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="In The List" image="list" id="yad-eY-vmA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daa-BT-0bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1977" y="718"/>
+        </scene>
+        <!--On The Map-->
+        <scene sceneID="VMT-84-BM2">
+            <objects>
+                <viewController id="muq-zV-QSy" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j8n-aP-s3S"/>
+                        <viewControllerLayoutGuide type="bottom" id="zjv-fL-bXH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8gM-H9-vTV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="On The Map" image="map" id="qtm-H4-lmC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Nl-1j-vX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1977" y="56"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="OKJ-A4-Pup">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEk-gV-Syu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="RootTabBar" id="Fh7-7R-rwf" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="4Uo-ID-tNf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="muq-zV-QSy" kind="relationship" relationship="viewControllers" id="1pe-Cf-Ad4"/>
+                        <segue destination="vcR-j3-ayB" kind="relationship" relationship="viewControllers" id="3bV-sG-h3U"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="1157" y="386"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="list" width="32" height="32"/>
+        <image name="map" width="32" height="32"/>
+        <image name="udacity" width="256" height="256"/>
+    </resources>
 </document>
