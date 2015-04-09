@@ -20,8 +20,6 @@ class LoginViewController: UIViewController {
     /* Sign In with Facebook Button */
     @IBOutlet weak var signInWithFacebookButton: UIButton!
     
-    var client = UdacityClient.sharedInstance()
-    
     override func viewDidLoad() {
         super.viewDidLoad()        
     }
@@ -33,9 +31,17 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginButtonTouchUpInside(sender: UIButton) {
-        client.loginWithUsernameAndPassword(self.emailTextField.text, password: self.passwordTextField.text) { success, errorString in
-            
-            println("loginButtonTouchUpInside done \(success) \(errorString)")
+        self.loginButton.enabled = false
+        self.loginButton.titleLabel?.text = "working..."
+        
+        UdacityClient.sharedInstance()
+            .loginWithUsernameAndPassword(self.emailTextField.text, password: self.passwordTextField.text) { success, errorString in
+                
+                println("loginButtonTouchUpInside done \(success) \(errorString)")
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.loginButton.enabled = true
+                    self.loginButton.titleLabel?.text = "Login"
+                }
         }
     }
     
