@@ -24,32 +24,64 @@ class UdacityClient: NSObject {
         return Singleton.sharedInstance
     }
     
-    func loginWithUsernameAndPassword(username: String, password: String, completionHandler: () -> Void) {
+    func loginWithUsernameAndPassword(username: String, password: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
+        /* 1. Get the users id by creating a new session with username and password */
+        getUserID(username, password: password) { success, userID, errorString in
+            
+            if success {
+                
+                /* 2. Fetch the users public data for First & Last Name */
+                self.getUsersPublicData(userID!) { succes, something, errorString in
+                    
+                    if success {
+                        
+                        /* 3. Store the appropriate user data for later use in Udacity Parse Client */
+                        println("Implement Me: Store the users public data")
+                        
+                    }
+                    completionHandler(success: success, errorString: errorString)
+                }
+            } else {
+                completionHandler(success: success, errorString: errorString)
+            }
+        }
+    }
+
+    func getUserID(username: String, password: String, completionHandler: (success: Bool, userID: Int?, errorString: String?) -> Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
         
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil {
-                completionHandler()
+        let task = session.udacityDataTaskWithRequest(request) { data, response, error in
+            
+            if let error = error? {
+                
+                completionHandler(success: false, userID: nil, errorString: "Login Failed (Invalid Credentials")
+
             } else {
-                let subsetData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
                 
                 var parseError: NSError? = nil
-                let parsedResult = NSJSONSerialization.JSONObjectWithData(subsetData, options: .AllowFragments, error: &parseError) as NSDictionary
+                let parsedResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as NSDictionary
                 
                 if let status = parsedResult.valueForKey("status") as? Int {
-                    let error = parsedResult.valueForKey("error") as String
-                    println("Login Error (\(status)): \(error)")
-                    completionHandler()
+
+                    completionHandler(success: false, userID: nil, errorString: "Login Failed (Server Response)")
+                    
                 } else {
+                    
                     let account = parsedResult.valueForKey("account") as [String: AnyObject]
                     let session = parsedResult.valueForKey("session") as [String: AnyObject]
-                    println("Login Success \(account) \(session )")
                     
-                    if let userID = account["key"] as? Int {
+                    let key = account["key"] as String
+                    if let userID = key.toInt() {
+
+                        completionHandler(success: true, userID: userID, errorString: nil)
+                        
+                    } else {
+                        
+                        completionHandler(success: false, userID: nil, errorString: "Login Failed (Bad User ID)")
                         
                     }
                 }
@@ -57,6 +89,24 @@ class UdacityClient: NSObject {
             }
         }
         task.resume()
-
     }
+    
+    func getUsersPublicData(userID: Int, completionHandler: (success: Bool, something: AnyObject?, errorString: String?) -> Void) {
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/users/\(userID)")!)
+        
+        let task = session.udacityDataTaskWithRequest(request) { data, response, error in
+            
+            if let error = error? {
+                
+                completionHandler(success: false, something: data, errorString: "Login Failed (Server Error)")
+                
+            } else {
+                
+                completionHandler(success: true, something: nil, errorString: nil)
+                
+            }
+        }
+        task.resume()
+    }
+    
 }

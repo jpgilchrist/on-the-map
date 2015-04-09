@@ -35,6 +35,8 @@
 		FB8300F21AD5D39500740C65 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8300F11AD5D39500740C65 /* LoginTextField.swift */; };
 		FBBFA42E1AD609A700E7313D /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA42D1AD609A700E7313D /* UdacityClient.swift */; };
 		FBBFA4301AD614AD00E7313D /* UdacityClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA42F1AD614AD00E7313D /* UdacityClientConstants.swift */; };
+		FBBFA4371AD6AAEB00E7313D /* UdacityUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4361AD6AAEB00E7313D /* UdacityUser.swift */; };
+		FBBFA4391AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4381AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		FB8300F11AD5D39500740C65 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		FBBFA42D1AD609A700E7313D /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		FBBFA42F1AD614AD00E7313D /* UdacityClientConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClientConstants.swift; sourceTree = "<group>"; };
+		FBBFA4361AD6AAEB00E7313D /* UdacityUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UdacityUser.swift; path = ../UdacityUser.swift; sourceTree = "<group>"; };
+		FBBFA4381AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityNSURLSessionExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		FB8300931AD5B94C00740C65 = {
 			isa = PBXGroup;
 			children = (
+				FBBFA4381AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift */,
 				FB83009E1AD5B94C00740C65 /* On The Map */,
 				FB8300B41AD5B94C00740C65 /* On The MapTests */,
 				FB83009D1AD5B94C00740C65 /* Products */,
@@ -237,6 +242,7 @@
 		FBBFA4321AD6164300E7313D /* Udacity */ = {
 			isa = PBXGroup;
 			children = (
+				FBBFA4361AD6AAEB00E7313D /* UdacityUser.swift */,
 				FBBFA42D1AD609A700E7313D /* UdacityClient.swift */,
 				FBBFA42F1AD614AD00E7313D /* UdacityClientConstants.swift */,
 			);
@@ -373,6 +379,8 @@
 				FB8300E71AD5C35E00740C65 /* ListViewController.swift in Sources */,
 				FBBFA4301AD614AD00E7313D /* UdacityClientConstants.swift in Sources */,
 				FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */,
+				FBBFA4391AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift in Sources */,
+				FBBFA4371AD6AAEB00E7313D /* UdacityUser.swift in Sources */,
 				FB8300F21AD5D39500740C65 /* LoginTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
