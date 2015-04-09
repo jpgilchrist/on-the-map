@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct UdacityUser {
+struct UdacityUser: Printable {
     let userID : Int
     let firstName: String
     let lastName: String
+    
+    var description: String {
+        return "UdacityUser [\(userID)] \(firstName) \(lastName)"
+    }
 }
