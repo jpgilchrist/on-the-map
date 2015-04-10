@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: StudentLocationMKMapView!
     
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     
@@ -19,20 +19,19 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        UdacityClient.sharedInstance().getStudentLocations() { success, studentLocations, error in
+        UdacityClient.sharedInstance().getStudentLocations() { success, studentLocations, errorString in
             
             if success {
-                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.mapView.addAnnotations(studentLocations)
+                }
             } else {
-                
+                println("FAILURE \(errorString)")
             }
-            
-            println("Map View Controller getStudentLocations done")
         }
-        
     }
 
     @IBAction func refreshButtonTouchUpInside(sender: UIBarButtonItem) {

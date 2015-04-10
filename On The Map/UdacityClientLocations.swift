@@ -10,7 +10,7 @@ import Foundation
 
 extension UdacityClient {
     
-    func getStudentLocations(completionHandler: (success: Bool, studentLocations: [StudentLocation]?, errorString: String?) -> Void) {
+    func getStudentLocations(completionHandler: (success: Bool, studentLocations: [StudentLocationAnnotation]?, errorString: String?) -> Void) {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -29,7 +29,7 @@ extension UdacityClient {
                 
                 if let results = parseResult["results"] as? [[String: AnyObject]] {
                     
-                    var studentLocations = [StudentLocation]()
+                    var studentLocations = [StudentLocationAnnotation]()
                     
                     for result in results {
                         
@@ -37,15 +37,15 @@ extension UdacityClient {
                         let uniqueKey = result["uniqueKey"] as String
                         let firstName = result["firstName"] as String
                         let lastName = result["lastName"] as String
-                        let latitude = result["latitude"] as Float
-                        let longitude = result["longitude"] as Float
+                        let latitude = result["latitude"] as Double
+                        let longitude = result["longitude"] as Double
                         let mapString = result["mapString"] as String
                         let mediaURLString = result["mediaURL"] as String
                         let mediaURL = NSURL(string: mediaURLString)!
                         
-                        let studentLocation = StudentLocation(objectId: objectId, uniqueKey: uniqueKey, firstName: firstName, lastName: lastName, latitude: latitude, longitude: longitude, mapString: mapString, mediaURL: mediaURL)
+                        let location = StudentLocationAnnotation.StudentLocation(objectId: objectId, uniqueKey: uniqueKey, firstName: firstName, lastName: lastName, latitude: latitude, longitude: longitude, mapString: mapString, mediaURL: mediaURL)
                         
-                        studentLocations.append(studentLocation)
+                        studentLocations.append(StudentLocationAnnotation(studentLocation: location))
                     }
                     
                     completionHandler(success: true, studentLocations: studentLocations, errorString: nil)
