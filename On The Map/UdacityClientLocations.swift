@@ -18,14 +18,14 @@ extension UdacityClient {
         
         let task = session.dataTaskWithRequest(request) { data, response, error in
 
-            if let error = error? {
+            if let error = error {
 
                 completionHandler(success: false, studentLocations: nil, errorString: "Get Student Locations Failed (Bad Request).")
                 
             } else {
                 
                 var parseError: NSError? = nil
-                let parseResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as NSDictionary
+                let parseResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as! NSDictionary
                 
                 if let results = parseResult["results"] as? [[String: AnyObject]] {
                     
@@ -33,14 +33,14 @@ extension UdacityClient {
                     
                     for result in results {
                         
-                        let objectId = result["objectId"] as String
-                        let uniqueKey = result["uniqueKey"] as String
-                        let firstName = result["firstName"] as String
-                        let lastName = result["lastName"] as String
-                        let latitude = result["latitude"] as Double
-                        let longitude = result["longitude"] as Double
-                        let mapString = result["mapString"] as String
-                        let mediaURLString = result["mediaURL"] as String
+                        let objectId = result["objectId"] as! String
+                        let uniqueKey = result["uniqueKey"] as! String
+                        let firstName = result["firstName"] as! String
+                        let lastName = result["lastName"] as! String
+                        let latitude = result["latitude"] as! Double
+                        let longitude = result["longitude"] as! Double
+                        let mapString = result["mapString"] as! String
+                        let mediaURLString = result["mediaURL"] as! String
                         let mediaURL = NSURL(string: mediaURLString)!
                         
                         let location = StudentLocationAnnotation.StudentLocation(objectId: objectId, uniqueKey: uniqueKey, firstName: firstName, lastName: lastName, latitude: latitude, longitude: longitude, mapString: mapString, mediaURL: mediaURL)

@@ -42,14 +42,14 @@ extension UdacityClient {
         
         let task = session.udacityDataTaskWithRequest(request) { data, response, error in
             
-            if let error = error? {
+            if let error = error {
                 
                 completionHandler(success: false, userID: nil, errorString: "Login Failed (Invalid Credentials")
                 
             } else {
                 
                 var parseError: NSError? = nil
-                let parsedResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as NSDictionary
+                let parsedResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as! NSDictionary
                 
                 if let status = parsedResult.valueForKey("status") as? Int {
                     
@@ -57,10 +57,10 @@ extension UdacityClient {
                     
                 } else {
                     
-                    let account = parsedResult.valueForKey("account") as [String: AnyObject]
-                    let session = parsedResult.valueForKey("session") as [String: AnyObject]
+                    let account = parsedResult.valueForKey("account") as! [String: AnyObject]
+                    let session = parsedResult.valueForKey("session") as! [String: AnyObject]
                     
-                    let key = account["key"] as String
+                    let key = account["key"] as! String
                     if let userID = key.toInt() {
                         
                         completionHandler(success: true, userID: userID, errorString: nil)
@@ -82,17 +82,17 @@ extension UdacityClient {
         
         let task = session.udacityDataTaskWithRequest(request) { data, response, error in
             
-            if let error = error? {
+            if let error = error {
                 
                 completionHandler(success: false, udacityUser: nil, errorString: "Login Failed (Server Error)")
                 
             } else {
                 var parseError: NSError? = nil
-                var parseResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as NSDictionary
+                var parseResult = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &parseError) as! NSDictionary
                 
-                let user = parseResult["user"] as [String: AnyObject]
-                let firstName = user["first_name"] as String
-                let lastName = user["last_name"] as String
+                let user = parseResult["user"] as! [String: AnyObject]
+                let firstName = user["first_name"] as! String
+                let lastName = user["last_name"] as! String
                 
                 let udacityUser = UdacityUser(userID: userID, firstName: firstName, lastName: lastName)
                 

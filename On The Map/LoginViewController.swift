@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
             self.debugLabel.text = ""
             self.loginButton.enabled = true
             
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("RootTabBar") as UITabBarController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("RootTabBar") as! UITabBarController
             self.presentViewController(controller, animated: true, completion: nil)
         }
     }

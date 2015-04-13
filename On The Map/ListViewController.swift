@@ -10,23 +10,25 @@ import UIKit
 
 class ListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: StudentLocationUITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        println("List View Controller viewDidLoad")
+        
+        fetchAndUpdateStudentLocations()
     }
-
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func fetchAndUpdateStudentLocations() {
+        UdacityStudentLocations.sharedInstance().getStudentLocations() { success, studentLocations, errorString in
+            if success {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.studentLocations = studentLocations
+                    self.tableView.reloadData()
+                }
+            } else {
+                println("FAILURE \(errorString)")
+            }
+        }
     }
-    */
-
 }

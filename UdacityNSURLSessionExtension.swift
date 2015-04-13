@@ -15,7 +15,7 @@ extension NSURLSession {
         return self.dataTaskWithRequest(request) { data, response, error in
             
             /* 1. Check if any data returned */
-            if let data = data? {
+            if let data = data {
 
                 /* 2. remove udacity's 5 padded characters */
                 let udacityNormalizedData = data.subdataWithRange(NSMakeRange(5, data.length - 5))

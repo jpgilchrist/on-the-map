@@ -9,6 +9,32 @@
 import UIKit
 import MapKit
 
+/*
+ * Class for accessing a shared source of studentLocations
+ *
+ */
+class UdacityStudentLocations: NSObject {
+    
+    private var studentLocations: [StudentLocationAnnotation]? = nil
+    
+    func getStudentLocations(completionHandler: (success: Bool, studentLocations: [StudentLocationAnnotation]?, errorString: String?) -> Void) {
+        
+        if let locations = studentLocations {
+            completionHandler(success: true, studentLocations: locations, errorString: nil)
+        } else {
+            UdacityClient.sharedInstance().getStudentLocations(completionHandler)
+        }
+    }
+    
+    class func sharedInstance() -> UdacityStudentLocations {
+        struct Singleton {
+            static let sharedInstance = UdacityStudentLocations()
+        }
+        
+        return Singleton.sharedInstance
+    }
+}
+
 class StudentLocationAnnotation: NSObject, MKAnnotation {
     
     struct Constants {
@@ -62,7 +88,7 @@ class StudentLocationAnnotation: NSObject, MKAnnotation {
 
         annotationView.enabled = true
         annotationView.canShowCallout = true
-        annotationView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.InfoLight) as UIView
+        annotationView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.InfoLight) as! UIView
         annotationView.animatesDrop = true
         
         return annotationView

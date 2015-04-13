@@ -8,15 +8,14 @@
 
 import Foundation
 
-class UdacityClient: NSObject {
+class UdacityClient {
     
     var session: NSURLSession
 
     var user : UdacityUser?
     
-    override init() {
+    init() {
         self.session = NSURLSession.sharedSession()
-        super.init()
     }
     
     class func sharedInstance() -> UdacityClient {

@@ -13,8 +13,6 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: StudentLocationMKMapView!
     
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,8 +20,12 @@ class MapViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UdacityClient.sharedInstance().getStudentLocations() { success, studentLocations, errorString in
-            
+        fetchAndUpdateStudentLocations()
+    }
+    
+    func fetchAndUpdateStudentLocations() {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        UdacityStudentLocations.sharedInstance().getStudentLocations() { success, studentLocations, errorString in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.mapView.addAnnotations(studentLocations)
@@ -32,11 +34,5 @@ class MapViewController: UIViewController {
                 println("FAILURE \(errorString)")
             }
         }
-    }
-
-    @IBAction func refreshButtonTouchUpInside(sender: UIBarButtonItem) {
-//        UdacityClient.sharedInstance().getStudentLocations() {
-//            println("Map View Controller getStudentLocations done")
-//        }
     }
 }
