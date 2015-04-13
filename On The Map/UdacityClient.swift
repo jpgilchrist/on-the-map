@@ -24,4 +24,5 @@ class UdacityClient {
         }
         return Singleton.sharedInstance
     }
+    
 }

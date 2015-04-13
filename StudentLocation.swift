@@ -83,16 +83,22 @@ class StudentLocationAnnotation: NSObject, MKAnnotation {
         return "\(self.studentLocation)"
     }
     
-    var annotationView: MKAnnotationView {
+    var annotationView: MKPinAnnotationView {
         let annotationView = MKPinAnnotationView(annotation: self, reuseIdentifier: StudentLocationAnnotation.Constants.reuseIdentifier)
 
         annotationView.enabled = true
         annotationView.canShowCallout = true
-        annotationView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.InfoLight) as! UIView
+        
         annotationView.animatesDrop = true
+        
+        var detailDisclosureButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIButton
+        detailDisclosureButton.addTarget(self, action: "touchUpInside:", forControlEvents: UIControlEvents.TouchUpInside)
+        annotationView.rightCalloutAccessoryView = detailDisclosureButton as UIView
         
         return annotationView
     }
     
-    
+    func touchUpInside(sender: UIButton) {
+        UIApplication.sharedApplication().openURL(self.studentLocation!.mediaURL)
+    }
 }

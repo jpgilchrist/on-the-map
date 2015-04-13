@@ -42,7 +42,6 @@
 		FBBFA43D1AD70F7F00E7313D /* UdacityClientLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA43C1AD70F7F00E7313D /* UdacityClientLocations.swift */; };
 		FBBFA4451AD7366B00E7313D /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4441AD7366B00E7313D /* StudentLocation.swift */; };
 		FBBFA4471AD825E400E7313D /* StudentLocationMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4461AD825E400E7313D /* StudentLocationMKMapView.swift */; };
-		FBFEB5B51ADC1C0600836D59 /* SharedNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEB5B41ADC1C0600836D59 /* SharedNavigationItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +94,6 @@
 		FBBFA43C1AD70F7F00E7313D /* UdacityClientLocations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClientLocations.swift; sourceTree = "<group>"; };
 		FBBFA4441AD7366B00E7313D /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudentLocation.swift; path = ../StudentLocation.swift; sourceTree = "<group>"; };
 		FBBFA4461AD825E400E7313D /* StudentLocationMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationMKMapView.swift; sourceTree = "<group>"; };
-		FBFEB5B41ADC1C0600836D59 /* SharedNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +235,6 @@
 		FB8300C31AD5BAD200740C65 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FBFEB5B41ADC1C0600836D59 /* SharedNavigationItem.swift */,
 				FB4875041AD849C10014EB72 /* Table */,
 				FB4875031AD836450014EB72 /* Login */,
 				FB4875021AD836330014EB72 /* Map */,
@@ -431,7 +428,6 @@
 				FBBFA4301AD614AD00E7313D /* UdacityClientConstants.swift in Sources */,
 				FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */,
 				FBBFA4391AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift in Sources */,
-				FBFEB5B51ADC1C0600836D59 /* SharedNavigationItem.swift in Sources */,
 				FB4875081AD84A1C0014EB72 /* StudentLocationUITableView.swift in Sources */,
 				FBBFA43D1AD70F7F00E7313D /* UdacityClientLocations.swift in Sources */,
 				FBBFA4371AD6AAEB00E7313D /* UdacityUser.swift in Sources */,

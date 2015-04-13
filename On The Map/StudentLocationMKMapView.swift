@@ -20,25 +20,9 @@ class StudentLocationMKMapView: MKMapView, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
-        /* 1. Make sure that the annotation is our StudentLocationAnnotation (should always be true) */
-        if let annotation = annotation as? StudentLocationAnnotation {
-            
-            /* 2. Dequeue a annotationView if one exists */
-            if let annotationView = self.dequeueReusableAnnotationViewWithIdentifier(StudentLocationAnnotation.Constants.reuseIdentifier) {
-                
-                /* 3a. Reconfigure the resuable annotation view with the subject annotation object */
-                annotationView.annotation = annotation
-                
-                return annotationView
-            } else {
-                
-                /* 3b. get the computed annotationView from our StudentLocationAnnotation class */
-                return annotation.annotationView
-            }
-        } else {
-            
-            /* this should never happen because we aren't adding any other types of annotations */
-            return nil
-        }
+        let annotation = annotation as! StudentLocationAnnotation
+        
+        return annotation.annotationView
     }
+
 }

@@ -253,7 +253,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="dTH-dK-VKc" id="2dv-Ug-drO"/>
-                        <outlet property="refreshButton" destination="24f-sf-gs7" id="5Jg-mM-pea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Nl-1j-vX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
