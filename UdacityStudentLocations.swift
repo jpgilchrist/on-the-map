@@ -1,5 +1,5 @@
 //
-//  StudentLocation.swift
+//  UdacityStudentLocations.swift
 //  On The Map
 //
 //  Created by James Gilchrist on 4/9/15.
