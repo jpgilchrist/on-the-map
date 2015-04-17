@@ -11,8 +11,10 @@
 		FB0BB35F1ADD7ED000F63328 /* FindOnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0BB35E1ADD7ED000F63328 /* FindOnTheMapViewController.swift */; };
 		FB4875081AD84A1C0014EB72 /* StudentLocationUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4875071AD84A1C0014EB72 /* StudentLocationUITableView.swift */; };
 		FB6AB9971AE0078100A3CA8A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9941AE0021300A3CA8A /* Alamofire.framework */; };
-		FB81D3FB1ADEB91B007B2284 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81D3FA1ADEB91B007B2284 /* ParseClient.swift */; };
-		FB81D3FE1ADEBA1D007B2284 /* ParseClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81D3FD1ADEBA1D007B2284 /* ParseClientConstants.swift */; };
+		FB6AB9A91AE020B900A3CA8A /* StudentLocationClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */; };
+		FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */; };
+		FB6AB9AD1AE02F3D00A3CA8A /* JSONHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */; };
+		FB81D3FB1ADEB91B007B2284 /* StudentLocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */; };
 		FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8300A11AD5B94C00740C65 /* AppDelegate.swift */; };
 		FB8300A71AD5B94C00740C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8300A51AD5B94C00740C65 /* Main.storyboard */; };
 		FB8300A91AD5B94C00740C65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8300A81AD5B94C00740C65 /* Images.xcassets */; };
@@ -48,7 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FB8300B21AD5B94C00740C65 /* PBXContainerItemProxy */ = {
+		FB6AB9A31AE01EC100A3CA8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB8300941AD5B94C00740C65 /* Project object */;
 			proxyType = 1;
@@ -62,16 +64,18 @@
 		FB0BB35E1ADD7ED000F63328 /* FindOnTheMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindOnTheMapViewController.swift; sourceTree = "<group>"; };
 		FB4875071AD84A1C0014EB72 /* StudentLocationUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationUITableView.swift; sourceTree = "<group>"; };
 		FB6AB9941AE0021300A3CA8A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		FB81D3FA1ADEB91B007B2284 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
-		FB81D3FD1ADEBA1D007B2284 /* ParseClientConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClientConstants.swift; sourceTree = "<group>"; };
+		FB6AB99D1AE01EC100A3CA8A /* On The Map Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The Map Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6AB9A01AE01EC100A3CA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClientTests.swift; sourceTree = "<group>"; };
+		FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONHelper.framework; path = Carthage/Build/iOS/JSONHelper.framework; sourceTree = "<group>"; };
+		FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClient.swift; sourceTree = "<group>"; };
 		FB83009C1AD5B94C00740C65 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8300A01AD5B94C00740C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8300A11AD5B94C00740C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB8300A61AD5B94C00740C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB8300A81AD5B94C00740C65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FB8300AB1AD5B94C00740C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		FB8300B11AD5B94C00740C65 /* On The MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB8300B61AD5B94C00740C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8300C61AD5BB5C00740C65 /* OnTheMap_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnTheMap_29.png; sourceTree = "<group>"; };
 		FB8300C71AD5BB5C00740C65 /* OnTheMap_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnTheMap_40.png; sourceTree = "<group>"; };
 		FB8300C81AD5BB5C00740C65 /* OnTheMap_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnTheMap_58.png; sourceTree = "<group>"; };
@@ -103,18 +107,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FB6AB99A1AE01EC100A3CA8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB8300991AD5B94C00740C65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6AB9AD1AE02F3D00A3CA8A /* JSONHelper.framework in Frameworks */,
 				FB6AB9971AE0078100A3CA8A /* Alamofire.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB8300AE1AD5B94C00740C65 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,11 +165,28 @@
 			name = StudentLocations;
 			sourceTree = "<group>";
 		};
+		FB6AB99E1AE01EC100A3CA8A /* On The Map Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */,
+				FB6AB99F1AE01EC100A3CA8A /* Supporting Files */,
+			);
+			path = "On The Map Tests";
+			sourceTree = "<group>";
+		};
+		FB6AB99F1AE01EC100A3CA8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB6AB9A01AE01EC100A3CA8A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FB81D3FC1ADEB921007B2284 /* Parse */ = {
 			isa = PBXGroup;
 			children = (
-				FB81D3FA1ADEB91B007B2284 /* ParseClient.swift */,
-				FB81D3FD1ADEBA1D007B2284 /* ParseClientConstants.swift */,
+				FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */,
+				FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -172,9 +194,10 @@
 		FB8300931AD5B94C00740C65 = {
 			isa = PBXGroup;
 			children = (
+				FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */,
 				FB6AB9941AE0021300A3CA8A /* Alamofire.framework */,
 				FB83009E1AD5B94C00740C65 /* On The Map */,
-				FB8300B41AD5B94C00740C65 /* On The MapTests */,
+				FB6AB99E1AE01EC100A3CA8A /* On The Map Tests */,
 				FB83009D1AD5B94C00740C65 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -183,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				FB83009C1AD5B94C00740C65 /* On The Map.app */,
-				FB8300B11AD5B94C00740C65 /* On The MapTests.xctest */,
+				FB6AB99D1AE01EC100A3CA8A /* On The Map Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,22 +232,6 @@
 				FB8300C51AD5BB1000740C65 /* images */,
 				FB8300C11AD5BA9800740C65 /* StoryBoards */,
 				FB8300A01AD5B94C00740C65 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FB8300B41AD5B94C00740C65 /* On The MapTests */ = {
-			isa = PBXGroup;
-			children = (
-				FB8300B51AD5B94C00740C65 /* Supporting Files */,
-			);
-			path = "On The MapTests";
-			sourceTree = "<group>";
-		};
-		FB8300B51AD5B94C00740C65 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FB8300B61AD5B94C00740C65 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -324,6 +331,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FB6AB99C1AE01EC100A3CA8A /* On The Map Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB6AB9A51AE01EC100A3CA8A /* Build configuration list for PBXNativeTarget "On The Map Tests" */;
+			buildPhases = (
+				FB6AB9991AE01EC100A3CA8A /* Sources */,
+				FB6AB99A1AE01EC100A3CA8A /* Frameworks */,
+				FB6AB99B1AE01EC100A3CA8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB6AB9A41AE01EC100A3CA8A /* PBXTargetDependency */,
+			);
+			name = "On The Map Tests";
+			productName = "On The Map Tests";
+			productReference = FB6AB99D1AE01EC100A3CA8A /* On The Map Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FB83009B1AD5B94C00740C65 /* On The Map */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB8300BB1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "On The Map" */;
@@ -342,24 +367,6 @@
 			productReference = FB83009C1AD5B94C00740C65 /* On The Map.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB8300B01AD5B94C00740C65 /* On The MapTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB8300BE1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "On The MapTests" */;
-			buildPhases = (
-				FB8300AD1AD5B94C00740C65 /* Sources */,
-				FB8300AE1AD5B94C00740C65 /* Frameworks */,
-				FB8300AF1AD5B94C00740C65 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB8300B31AD5B94C00740C65 /* PBXTargetDependency */,
-			);
-			name = "On The MapTests";
-			productName = "On The MapTests";
-			productReference = FB8300B11AD5B94C00740C65 /* On The MapTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -369,12 +376,12 @@
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "James Gilchrist";
 				TargetAttributes = {
+					FB6AB99C1AE01EC100A3CA8A = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = FB83009B1AD5B94C00740C65;
+					};
 					FB83009B1AD5B94C00740C65 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					FB8300B01AD5B94C00740C65 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = FB83009B1AD5B94C00740C65;
 					};
 				};
 			};
@@ -392,12 +399,19 @@
 			projectRoot = "";
 			targets = (
 				FB83009B1AD5B94C00740C65 /* On The Map */,
-				FB8300B01AD5B94C00740C65 /* On The MapTests */,
+				FB6AB99C1AE01EC100A3CA8A /* On The Map Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FB6AB99B1AE01EC100A3CA8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB83009A1AD5B94C00740C65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -425,13 +439,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB8300AF1AD5B94C00740C65 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -442,6 +449,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JSONHelper.framework",
 			);
 			outputPaths = (
 			);
@@ -452,18 +460,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FB6AB9991AE01EC100A3CA8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB6AB9A91AE020B900A3CA8A /* StudentLocationClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB8300981AD5B94C00740C65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FB8300E31AD5C17100740C65 /* LoginViewController.swift in Sources */,
-				FB81D3FE1ADEBA1D007B2284 /* ParseClientConstants.swift in Sources */,
 				FB0BB35D1ADD790E00F63328 /* RoundedButton.swift in Sources */,
 				FB8300E51AD5C35600740C65 /* MapViewController.swift in Sources */,
 				FBBFA4451AD7366B00E7313D /* UdacityStudentLocations.swift in Sources */,
 				FBBFA42E1AD609A700E7313D /* UdacityClient.swift in Sources */,
 				FB8300E71AD5C35E00740C65 /* ListViewController.swift in Sources */,
-				FB81D3FB1ADEB91B007B2284 /* ParseClient.swift in Sources */,
+				FB81D3FB1ADEB91B007B2284 /* StudentLocationClient.swift in Sources */,
+				FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */,
 				FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */,
 				FBBFA4391AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift in Sources */,
 				FB4875081AD84A1C0014EB72 /* StudentLocationUITableView.swift in Sources */,
@@ -476,20 +492,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB8300AD1AD5B94C00740C65 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FB8300B31AD5B94C00740C65 /* PBXTargetDependency */ = {
+		FB6AB9A41AE01EC100A3CA8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB83009B1AD5B94C00740C65 /* On The Map */;
-			targetProxy = FB8300B21AD5B94C00740C65 /* PBXContainerItemProxy */;
+			targetProxy = FB6AB9A31AE01EC100A3CA8A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -513,6 +522,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FB6AB9A61AE01EC100A3CA8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "On The Map Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
+			};
+			name = Debug;
+		};
+		FB6AB9A71AE01EC100A3CA8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "On The Map Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
+			};
+			name = Release;
+		};
 		FB8300B91AD5B94C00740C65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -620,45 +669,17 @@
 			};
 			name = Release;
 		};
-		FB8300BF1AD5B94C00740C65 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "On The MapTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
-			};
-			name = Debug;
-		};
-		FB8300C01AD5B94C00740C65 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = "On The MapTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FB6AB9A51AE01EC100A3CA8A /* Build configuration list for PBXNativeTarget "On The Map Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB6AB9A61AE01EC100A3CA8A /* Debug */,
+				FB6AB9A71AE01EC100A3CA8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FB8300971AD5B94C00740C65 /* Build configuration list for PBXProject "On The Map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -673,15 +694,6 @@
 			buildConfigurations = (
 				FB8300BC1AD5B94C00740C65 /* Debug */,
 				FB8300BD1AD5B94C00740C65 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB8300BE1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "On The MapTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB8300BF1AD5B94C00740C65 /* Debug */,
-				FB8300C01AD5B94C00740C65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
