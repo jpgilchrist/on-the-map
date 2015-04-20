@@ -1,5 +1,5 @@
 //
-//  FindOnTheMapViewController.swift
+//  EnterLocationViewController.swift
 //  On The Map
 //
 //  Created by James Gilchrist on 4/14/15.
@@ -7,18 +7,28 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
-class FindOnTheMapViewController: UIViewController {
+class EnterLocationViewController: UIViewController {
 
     @IBOutlet weak var studyingLocationTextField: UITextField!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var findOnTheMapButton: RoundedUIButton!
+    @IBOutlet weak var selectLocationButton: RoundedUIButton!
     
     let geocoder = CLGeocoder()
     
+    var geocodedPlacemarks: [CLPlacemark]? {
+        didSet {
+            mapView.hidden = false
+            selectLocationButton.hidden = false
+            findOnTheMapButton.hidden = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,11 +43,7 @@ class FindOnTheMapViewController: UIViewController {
                 if let error = error {
                     println(error)
                 } else {
-                    if let placemarks = result as? [CLPlacemark] {
-                        for placemark in placemarks {
-                            println("Place Mark Location: \(placemark.location)")
-                        }
-                    }
+                    self.geocodedPlacemarks = result as? [CLPlacemark]
                 }
                 
             }

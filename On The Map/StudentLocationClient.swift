@@ -18,6 +18,7 @@ public class StudentLocationClient {
         completionHandler: StudentLocationArrayCompletionHandler) {
             
             Alamofire.request(Router.ReadStudentLocations(limit: limit))
+                .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                     if let error = error {
                         completionHandler(success: false, studentLocations: nil, error: error)
@@ -35,6 +36,7 @@ public class StudentLocationClient {
         completionHandler: StudentLocationObjectCompletionHandler) {
             
             Alamofire.request(Router.CreateStudentLocation(studentLocation.toDictionary()))
+                .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                     
                     if let error = error {
@@ -56,6 +58,7 @@ public class StudentLocationClient {
             
             Alamofire.request(Router.UpdateStudentLocation(objectId: studentLocation.objectId!,
                 studentLocation.toDictionary()))
+                .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
              
                     if let error = error {
@@ -69,7 +72,62 @@ public class StudentLocationClient {
                         completionHandler(success: true, studentLocation: studentLocation, error: nil)
                     }
             }
+    }
+    
+    public func findStudentLocationsByUniqueKey(uniqueKey: String,
+        completionHandler: StudentLocationArrayCompletionHandler) {
             
+            Alamofire.request(Router.FindByUniqueKey(uniqueKey: uniqueKey))
+                .validate()
+                .responseJSON(options: .AllowFragments) { request, response, JSON, error in
+                
+                    if let error = error {
+                        completionHandler(success: false, studentLocations: nil, error: error)
+                    } else {
+                        let json = JSON as! [String: AnyObject]
+                        var studentLocations: [StudentLocation]?
+                        studentLocations <-- json["results"]
+                        
+                        completionHandler(success: true, studentLocations: studentLocations, error: nil)
+                        
+                    }
+                    
+            }
+    }
+    
+    public func findStudentLocationByObjectId(objectId: String,
+        completionHandler: StudentLocationObjectCompletionHandler) {
+            
+            Alamofire.request(Router.FindByObjectId(objectId: objectId))
+                .validate()
+                .responseJSON(options: .AllowFragments) { request, response, JSON, error in
+                    
+                    if let error = error {
+                        completionHandler(success: false, studentLocation: nil, error: error)
+                    } else {
+
+                        let json = JSON as! [String: AnyObject]
+                        var studentLocation = StudentLocation(data: json)
+                        
+                        completionHandler(success: true, studentLocation: studentLocation, error: nil)
+                    }
+            }
+    }
+    
+    public func destroyStudentLocationByObjectId(objectId: String,
+        completionHandler: StudentLocationObjectCompletionHandler) {
+            
+            Alamofire.request(Router.DestroyStudentLocation(objectId: objectId))
+                .validate()
+                .responseJSON(options: .AllowFragments) { request, response, JSON, error in
+                    
+                    if let error = error {
+                        completionHandler(success: false, studentLocation: nil, error: error)
+                    } else {
+                        
+                        completionHandler(success: true, studentLocation: nil, error: nil)
+                    }
+            }
     }
     
     public class func sharedInstance() -> StudentLocationClient {
@@ -86,24 +144,32 @@ public class StudentLocationClient {
         case CreateStudentLocation([String: AnyObject])
         case ReadStudentLocations(limit: Int)
         case UpdateStudentLocation(objectId: String, [String: AnyObject])
-        case QueryStudentLocation(uniqueKey: String)
+        case DestroyStudentLocation(objectId: String)
+        case FindByUniqueKey(uniqueKey: String)
+        case FindByObjectId(objectId: String)
         
         var method: Alamofire.Method {
             switch self {
             case .CreateStudentLocation:
                 return .POST
-            case .ReadStudentLocations, .QueryStudentLocation:
+            case .ReadStudentLocations, .FindByUniqueKey, .FindByObjectId:
                 return .GET
             case .UpdateStudentLocation:
                 return .PUT
+            case .DestroyStudentLocation:
+                return .DELETE
             }
         }
         
         var path: String {
             switch self {
-            case .CreateStudentLocation, .ReadStudentLocations, .QueryStudentLocation:
+            case .CreateStudentLocation, .ReadStudentLocations, .FindByUniqueKey:
                 return "StudentLocation"
+            case .FindByObjectId(let objectId):
+                return "StudentLocation/\(objectId)"
             case .UpdateStudentLocation(let objectId, _):
+                return "StudentLocation/\(objectId)"
+            case .DestroyStudentLocation(let objectId):
                 return "StudentLocation/\(objectId)"
             }
         }
@@ -125,9 +191,11 @@ public class StudentLocationClient {
                 return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["limit": limit]).0
             case .UpdateStudentLocation(_, let parameters):
                 return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-            case .QueryStudentLocation(let uniqueKey):
+            case .FindByUniqueKey(let uniqueKey):
                 return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest,
-                    parameters: [ "where" : "{\"uniqueKey\": \(uniqueKey)"]).0
+                    parameters: [ "where" : "{\"uniqueKey\": \"\(uniqueKey)\"}"]).0
+            case .DestroyStudentLocation, .FindByObjectId:
+                return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: [:]).0
             }
         }
         

@@ -17,6 +17,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Roboto-Thin.ttf">
             <string>Roboto-Thin</string>
@@ -220,7 +221,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="fUb-zx-yLq">
                             <connections>
-                                <action selector="refreshButton:" destination="vcR-j3-ayB" id="Gui-4P-FFn"/>
+                                <action selector="fetchAndUpdateStudentLocations" destination="vcR-j3-ayB" id="oar-ri-kT4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -264,7 +265,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="24f-sf-gs7">
                             <connections>
-                                <action selector="refreshButtonTouchUpInside:" destination="muq-zV-QSy" id="cDR-kh-zER"/>
+                                <action selector="fetchAndUpdateStudentLocations" destination="muq-zV-QSy" id="g9c-ua-nOK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -276,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="2789" y="56"/>
         </scene>
-        <!--Find On The Map View Controller-->
+        <!--Enter Location View Controller-->
         <scene sceneID="elf-jV-mqc">
             <objects>
-                <viewController id="Vnw-9y-b54" customClass="FindOnTheMapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vnw-9y-b54" customClass="EnterLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d78-yr-hCH"/>
                         <viewControllerLayoutGuide type="bottom" id="gTw-36-L4C"/>
@@ -312,20 +313,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="qay-01-hhN" firstAttribute="top" secondItem="Gce-Bt-881" secondAttribute="bottom" constant="8" symbolic="YES" id="1kR-TR-dFV"/>
-                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="L8i-fo-BYb" secondAttribute="centerX" id="H7M-Gf-byY"/>
-                                    <constraint firstItem="Gce-Bt-881" firstAttribute="top" secondItem="ug6-p9-7Mq" secondAttribute="bottom" constant="8" symbolic="YES" id="KNp-RC-Oja"/>
-                                    <constraint firstAttribute="bottom" secondItem="qay-01-hhN" secondAttribute="bottom" constant="45" id="kDS-sJ-myA"/>
-                                    <constraint firstItem="Gce-Bt-881" firstAttribute="centerX" secondItem="qay-01-hhN" secondAttribute="centerX" id="mY8-yW-4tL"/>
-                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="top" constant="49" id="rgn-nb-6N8"/>
-                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="ufQ-I0-nYT"/>
+                                    <constraint firstAttribute="bottom" secondItem="qay-01-hhN" secondAttribute="bottom" constant="45" id="CJ5-fG-FiE"/>
+                                    <constraint firstItem="qay-01-hhN" firstAttribute="top" secondItem="Gce-Bt-881" secondAttribute="bottom" constant="8" symbolic="YES" id="JZ9-Ef-RIE"/>
+                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="L8i-fo-BYb" secondAttribute="centerX" id="NXJ-5o-dIR"/>
+                                    <constraint firstItem="qay-01-hhN" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="Rwv-oJ-Dkq"/>
+                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="Xb5-i6-L5f"/>
+                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="top" constant="49" id="Yrb-eA-pNS"/>
+                                    <constraint firstItem="Gce-Bt-881" firstAttribute="top" secondItem="ug6-p9-7Mq" secondAttribute="bottom" constant="8" symbolic="YES" id="ZcH-pQ-wms"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KO-vg-NcS">
-                                <rect key="frame" x="0.0" y="206" width="600" height="188"/>
+                                <rect key="frame" x="0.0" y="206" width="600" height="142"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Studying Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HpU-4Q-g03">
-                                        <rect key="frame" x="8" y="69" width="584" height="50"/>
+                                        <rect key="frame" x="8" y="44" width="584" height="53"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="31"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -333,17 +334,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.90588235294117647" green="0.33333333333333331" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailingMargin" id="A1c-To-E1g"/>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="leading" secondItem="6KO-vg-NcS" secondAttribute="leadingMargin" id="DDe-tX-EwG"/>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="centerY" secondItem="6KO-vg-NcS" secondAttribute="centerY" id="aLt-OW-QfJ"/>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="top" constant="69" id="zQC-27-IaN"/>
+                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="leading" secondItem="6KO-vg-NcS" secondAttribute="leadingMargin" id="9aW-Qg-azP"/>
+                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailingMargin" id="GEi-C4-YlB"/>
+                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="top" constant="44" id="MA7-gG-znW"/>
+                                    <constraint firstAttribute="bottom" secondItem="HpU-4Q-g03" secondAttribute="bottom" constant="45" id="U1O-nD-h6c"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6W-rl-XkX">
-                                <rect key="frame" x="0.0" y="394" width="600" height="206"/>
+                                <rect key="frame" x="0.0" y="348" width="600" height="252"/>
                                 <subviews>
+                                    <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gT9-sY-zK1">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
+                                    </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojw-af-DUc" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
-                                        <rect key="frame" x="227" y="87" width="146" height="31"/>
+                                        <rect key="frame" x="227" y="120" width="146" height="31"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -354,30 +358,54 @@
                                             <action selector="findOnTheMapButtonTouchUpInside:" destination="Vnw-9y-b54" eventType="touchUpInside" id="5hM-SZ-8cX"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-5G-I02" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
+                                        <rect key="frame" x="230" y="213" width="140" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="Select Location">
+                                            <color key="titleColor" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Ojw-af-DUc" firstAttribute="top" secondItem="Q6W-rl-XkX" secondAttribute="top" constant="87" id="B69-ew-tdv"/>
-                                    <constraint firstItem="Ojw-af-DUc" firstAttribute="centerX" secondItem="Q6W-rl-XkX" secondAttribute="centerX" id="ZSt-Hc-u5l"/>
+                                    <constraint firstItem="Ojw-af-DUc" firstAttribute="centerX" secondItem="GD4-5G-I02" secondAttribute="centerX" id="94N-1U-16e"/>
+                                    <constraint firstItem="GD4-5G-I02" firstAttribute="bottom" secondItem="Q6W-rl-XkX" secondAttribute="bottomMargin" id="R1Y-7z-GxY"/>
+                                    <constraint firstItem="GD4-5G-I02" firstAttribute="top" secondItem="Ojw-af-DUc" secondAttribute="bottom" constant="62" id="TAP-xL-2Hg"/>
+                                    <constraint firstItem="gT9-sY-zK1" firstAttribute="leading" secondItem="Q6W-rl-XkX" secondAttribute="leading" id="XTH-cf-ouw"/>
+                                    <constraint firstAttribute="trailing" secondItem="gT9-sY-zK1" secondAttribute="trailing" id="p2Q-sQ-1xk"/>
+                                    <constraint firstItem="gT9-sY-zK1" firstAttribute="top" secondItem="Q6W-rl-XkX" secondAttribute="top" id="p4V-4V-sO2"/>
+                                    <constraint firstAttribute="bottom" secondItem="gT9-sY-zK1" secondAttribute="bottom" constant="-3" id="wCv-6j-M3F"/>
+                                    <constraint firstItem="GD4-5G-I02" firstAttribute="centerX" secondItem="gT9-sY-zK1" secondAttribute="centerX" id="xX3-gJ-geQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="trailing" secondItem="Q6W-rl-XkX" secondAttribute="trailing" id="0tz-It-I3T"/>
-                            <constraint firstItem="L8i-fo-BYb" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" id="1xj-40-Q77"/>
-                            <constraint firstItem="L8i-fo-BYb" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="5Oe-pf-27D"/>
-                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="bottom" id="BZj-Pb-sy6"/>
-                            <constraint firstAttribute="trailing" secondItem="L8i-fo-BYb" secondAttribute="trailing" id="DkU-nW-xzZ"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="bottom" id="Z1F-wt-abb"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="L8i-fo-BYb" secondAttribute="leading" id="aq4-hP-eWP"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="centerY" secondItem="dCc-Mt-OFA" secondAttribute="centerY" id="bbb-dk-UNa"/>
-                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="bottom" secondItem="gTw-36-L4C" secondAttribute="top" id="d0S-Ph-oOA"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="dCc-Mt-OFA" secondAttribute="leading" id="rFv-kg-8SV"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="Q6W-rl-XkX" secondAttribute="leading" id="rz5-f8-SNB"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="bottom" id="0E8-CR-Xro"/>
+                            <constraint firstItem="L8i-fo-BYb" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" id="4Wc-F2-apj"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" constant="348" id="5I5-BW-Nqz"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="Q6W-rl-XkX" secondAttribute="leading" id="93o-SI-dLe"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" constant="345" id="FEb-BG-Kgp"/>
+                            <constraint firstAttribute="trailing" secondItem="Q6W-rl-XkX" secondAttribute="trailing" id="LY8-T8-QYr"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="NOP-LC-nQP"/>
+                            <constraint firstItem="L8i-fo-BYb" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="Og5-De-Vfn"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="L8i-fo-BYb" secondAttribute="leading" id="UQP-PP-TfS"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="bottom" id="beD-Xf-Kks"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="dCc-Mt-OFA" secondAttribute="leading" id="oLw-ti-Mc9"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="bottom" secondItem="gTw-36-L4C" secondAttribute="top" id="yg9-2o-KFk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FEb-BG-Kgp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="findOnTheMapButton" destination="Ojw-af-DUc" id="tVg-CC-CNl"/>
+                        <outlet property="mapView" destination="gT9-sY-zK1" id="pAm-u4-h4T"/>
+                        <outlet property="selectLocationButton" destination="GD4-5G-I02" id="KgC-5h-cgT"/>
                         <outlet property="studyingLocationTextField" destination="HpU-4Q-g03" id="5tb-S7-Aqr"/>
                     </connections>
                 </viewController>

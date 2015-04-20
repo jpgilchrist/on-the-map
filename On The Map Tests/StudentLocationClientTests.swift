@@ -23,51 +23,101 @@ class StudentLocationClientTests: XCTestCase {
         "longitude": -122.083851
         ])
     
-    func testReadStudentLocationsWithLimit() {
-        let exp = expectationWithDescription("StudentLocationClientTests.testReadStudentLocationsWithLimit")
-        
-        StudentLocationClient.sharedInstance().readStudentLocations(1) { success, json, error in
-            XCTAssertNil(error, "\(error)")
-            
-            println(json)
-            
-            exp.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error, "there were errors")   
-        }
-    }
+//    func testReadStudentLocationsWithLimit() {
+//        let exp = expectationWithDescription("StudentLocationClientTests.testReadStudentLocationsWithLimit")
+//        
+//        StudentLocationClient.sharedInstance().readStudentLocations(1) { success, json, error in
+//            XCTAssertNil(error, "\(error)")
+//            
+//            println(json)
+//            
+//            exp.fulfill()
+//        }
+//        
+//        waitForExpectationsWithTimeout(5) { error in
+//            XCTAssertNil(error, "there were errors")   
+//        }
+//    }
+//    
+//    func testCreateStudentLocation() {
+//        let exp = expectationWithDescription("StudentLocationClientTests.testCreateStudentLocation")
+//        
+//        StudentLocationClient.sharedInstance().createStudentLocation(studentLocation) { success, json, error in
+//            XCTAssertNil(error, "\(error)")
+//            
+//            self.studentLocation = json
+//            println("RESULT \(self.studentLocation)")
+//
+//            
+//            exp.fulfill()
+//        }
+//        
+//        waitForExpectationsWithTimeout(5) { error in
+//            XCTAssertNil(error, "there were errors")
+//        }
+//    }
+//    
+//    func testUpdateStudentLocation() {
+//        let exp = expectationWithDescription("StudentLocationClientTests.testUpdateStudentLocation")
+//
+//        studentLocation.objectId = "zdkuAdgGif"
+//        studentLocation.firstName = "Jayne"
+//        
+//        StudentLocationClient.sharedInstance().updateStudentLocation(studentLocation) { success, json, error in
+//            XCTAssertNil(error, "\(error)")
+//            
+//            self.studentLocation = json
+//            println("RESULT \(self.studentLocation)")
+//            
+//            exp.fulfill()
+//        }
+//        
+//        waitForExpectationsWithTimeout(5) { error in
+//            XCTAssertNil(error, "there were errors")
+//        }
+//    }
     
-    func testCreateStudentLocation() {
-        let exp = expectationWithDescription("StudentLocationClientTests.testCreateStudentLocation")
-        
-        StudentLocationClient.sharedInstance().createStudentLocation(studentLocation) { success, json, error in
-            XCTAssertNil(error, "\(error)")
-            
-            self.studentLocation = json
-            println("RESULT \(self.studentLocation)")
-
-            
-            exp.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error, "there were errors")
-        }
-    }
+//    func testFindStudentLocationByUniqueKey() {
+//        let exp = expectationWithDescription("StudentLocationClientTests.testFindStudentLocationsByUniqueKey")
+//
+//        StudentLocationClient.sharedInstance().findStudentLocationsByUniqueKey("1234") { success, json, error in
+//            XCTAssertNil(error, "\(error)")
+//            
+//            println("RESULT \(success) \(json) \(error)")
+//            
+//            exp.fulfill()
+//        }
+//        
+//        waitForExpectationsWithTimeout(5) { error in
+//            XCTAssertNil(error, "there were errors")
+//        }
+//    }
     
-    func testUpdateStudentLocation() {
-        let exp = expectationWithDescription("StudentLocationClientTests.testUpdateStudentLocation")
-
-        studentLocation.objectId = "zdkuAdgGif"
-        studentLocation.firstName = "Jayne"
+//    func testFindStudentLocationByObjectId() {
+//        
+//        let exp = expectationWithDescription("StudentLocationClientTests.testFindStudentLocationByObjectId")
+//        
+//        StudentLocationClient.sharedInstance().findStudentLocationByObjectId("Ir5wfOucEF") { success, json, error in
+//            XCTAssertNil(error, "\(error)")
+//            
+//            println("RESULT \(success) \(json) \(error)")
+//            
+//            exp.fulfill()
+//        }
+//        
+//        waitForExpectationsWithTimeout(5) { error in
+//            XCTAssertNil(error, "there were errors")
+//        }
+//    }
+    
+    func testDestroyStudentLocationByObjectId() {
         
-        StudentLocationClient.sharedInstance().updateStudentLocation(studentLocation) { success, json, error in
+        let exp = expectationWithDescription("StudentLocationClientTests.testDestroyStudentLocationByObjectId")
+        
+        StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId("Ir5wfOucEF") { success, json, error in
             XCTAssertNil(error, "\(error)")
             
-            self.studentLocation = json
-            println("RESULT \(self.studentLocation)")
+            println("RESULT \(success) \(json) \(error)")
             
             exp.fulfill()
         }

@@ -8,6 +8,7 @@
 
 import Foundation
 import JSONHelper
+import MapKit
 
 public struct StudentLocation: Deserializable, Printable {
     
@@ -65,5 +66,17 @@ public struct StudentLocation: Deserializable, Printable {
         let data = NSJSONSerialization.dataWithJSONObject(self.toDictionary(), options: nil, error: nil)
         let prettyPrinted: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments, error: nil)!
         return "\(prettyPrinted)"
+    }
+    
+    func asStudentAnnotation() -> StudentLocationAnnotation {
+        return StudentLocationAnnotation(studentLocation: self)
+    }
+    
+    static func toStudentAnnotations(studentLocations: [StudentLocation]) -> [StudentLocationAnnotation] {
+        var studentLocationAnnotations = [StudentLocationAnnotation]()
+        for studentLocation in studentLocations {
+            studentLocationAnnotations.append(studentLocation.asStudentAnnotation())
+        }
+        return studentLocationAnnotations
     }
 }

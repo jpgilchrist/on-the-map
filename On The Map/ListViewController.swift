@@ -19,11 +19,11 @@ class ListViewController: UIViewController {
         fetchAndUpdateStudentLocations()
     }
     
-    func fetchAndUpdateStudentLocations() {
-        UdacityStudentLocations.sharedInstance().getStudentLocations() { success, studentLocations, errorString in
+    @IBAction func fetchAndUpdateStudentLocations() {
+        StudentLocationClient.sharedInstance().readStudentLocations(100) { success, studentLocations, errorString in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.tableView.studentLocations = studentLocations
+                    self.tableView.studentLocations = StudentLocation.toStudentAnnotations(studentLocations)
                     self.tableView.reloadData()
                 }
             } else {

@@ -23,12 +23,13 @@ class MapViewController: UIViewController {
         fetchAndUpdateStudentLocations()
     }
     
-    func fetchAndUpdateStudentLocations() {
+    @IBAction func fetchAndUpdateStudentLocations() {
         self.mapView.removeAnnotations(self.mapView.annotations)
-        UdacityStudentLocations.sharedInstance().getStudentLocations() { success, studentLocations, errorString in
+        
+        StudentLocationClient.sharedInstance().readStudentLocations(100) { success, studentLocations, errorString in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.mapView.addAnnotations(studentLocations)
+                    self.mapView.addAnnotations(StudentLocation.toStudentAnnotations(studentLocations))
                 }
             } else {
                 println("FAILURE \(errorString)")
