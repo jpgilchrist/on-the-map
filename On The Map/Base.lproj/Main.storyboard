@@ -10,8 +10,14 @@
         <mutableArray key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
+            <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -216,7 +222,7 @@
                     <navigationItem key="navigationItem" id="V79-wZ-TIZ">
                         <barButtonItem key="leftBarButtonItem" image="pin" id="35s-iM-8I7">
                             <connections>
-                                <segue destination="Vnw-9y-b54" kind="presentation" identifier="ShowCreatePinFromList" id="mDp-2E-llE"/>
+                                <segue destination="uQx-bd-G9S" kind="presentation" identifier="ShowCreatePinFromList" id="mDp-2E-llE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="fUb-zx-yLq">
@@ -260,7 +266,7 @@
                     <navigationItem key="navigationItem" id="cfX-uJ-jpG">
                         <barButtonItem key="leftBarButtonItem" image="pin" id="Ud3-gL-iNL">
                             <connections>
-                                <segue destination="Vnw-9y-b54" kind="presentation" id="ASt-BE-bX1"/>
+                                <segue destination="uQx-bd-G9S" kind="presentation" id="ASt-BE-bX1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="24f-sf-gs7">
@@ -277,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="2789" y="56"/>
         </scene>
-        <!--Enter Location View Controller-->
+        <!--Enter Studying Location-->
         <scene sceneID="elf-jV-mqc">
             <objects>
                 <viewController id="Vnw-9y-b54" customClass="EnterLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
@@ -313,13 +319,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qay-01-hhN" secondAttribute="bottom" constant="45" id="CJ5-fG-FiE"/>
-                                    <constraint firstItem="qay-01-hhN" firstAttribute="top" secondItem="Gce-Bt-881" secondAttribute="bottom" constant="8" symbolic="YES" id="JZ9-Ef-RIE"/>
-                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="L8i-fo-BYb" secondAttribute="centerX" id="NXJ-5o-dIR"/>
-                                    <constraint firstItem="qay-01-hhN" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="Rwv-oJ-Dkq"/>
-                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="Xb5-i6-L5f"/>
-                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="top" constant="49" id="Yrb-eA-pNS"/>
-                                    <constraint firstItem="Gce-Bt-881" firstAttribute="top" secondItem="ug6-p9-7Mq" secondAttribute="bottom" constant="8" symbolic="YES" id="ZcH-pQ-wms"/>
+                                    <constraint firstAttribute="bottom" secondItem="qay-01-hhN" secondAttribute="bottom" constant="45" id="8PI-6W-plq"/>
+                                    <constraint firstItem="qay-01-hhN" firstAttribute="top" secondItem="Gce-Bt-881" secondAttribute="bottom" constant="8" symbolic="YES" id="IKi-Lk-3Oe"/>
+                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="LYa-gX-NKY"/>
+                                    <constraint firstItem="Gce-Bt-881" firstAttribute="top" secondItem="ug6-p9-7Mq" secondAttribute="bottom" constant="8" symbolic="YES" id="OXZ-WM-AzD"/>
+                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="centerX" secondItem="L8i-fo-BYb" secondAttribute="centerX" id="RFr-bx-OjI"/>
+                                    <constraint firstItem="qay-01-hhN" firstAttribute="centerX" secondItem="Gce-Bt-881" secondAttribute="centerX" id="fMK-d4-MF2"/>
+                                    <constraint firstItem="ug6-p9-7Mq" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="top" constant="49" id="sXe-Il-T8a"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KO-vg-NcS">
@@ -334,20 +340,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.90588235294117647" green="0.33333333333333331" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="leading" secondItem="6KO-vg-NcS" secondAttribute="leadingMargin" id="9aW-Qg-azP"/>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailingMargin" id="GEi-C4-YlB"/>
-                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="top" constant="44" id="MA7-gG-znW"/>
-                                    <constraint firstAttribute="bottom" secondItem="HpU-4Q-g03" secondAttribute="bottom" constant="45" id="U1O-nD-h6c"/>
+                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="leading" secondItem="6KO-vg-NcS" secondAttribute="leadingMargin" id="AwQ-Al-zuf"/>
+                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailingMargin" id="m34-Iz-k1v"/>
+                                    <constraint firstAttribute="bottom" secondItem="HpU-4Q-g03" secondAttribute="bottom" constant="45" id="nHI-9m-Kqb"/>
+                                    <constraint firstItem="HpU-4Q-g03" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="top" constant="44" id="ykC-ts-jhB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6W-rl-XkX">
                                 <rect key="frame" x="0.0" y="348" width="600" height="252"/>
                                 <subviews>
-                                    <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gT9-sY-zK1">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
-                                    </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojw-af-DUc" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
-                                        <rect key="frame" x="227" y="120" width="146" height="31"/>
+                                        <rect key="frame" x="227" y="162" width="146" height="31"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -358,43 +361,44 @@
                                             <action selector="findOnTheMapButtonTouchUpInside:" destination="Vnw-9y-b54" eventType="touchUpInside" id="5hM-SZ-8cX"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-5G-I02" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
-                                        <rect key="frame" x="230" y="213" width="140" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OG4-AD-tIv" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
+                                        <rect key="frame" x="227" y="201" width="146" height="31"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                        <state key="normal" title="Select Location">
+                                        <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButtonTouchUpInside:" destination="Vnw-9y-b54" eventType="touchUpInside" id="CcW-o2-3qf"/>
+                                            <action selector="selectLocationButtonTouchUpInside:" destination="SFi-e9-zIJ" eventType="touchUpInside" id="aGZ-sx-bcz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Ojw-af-DUc" firstAttribute="centerX" secondItem="GD4-5G-I02" secondAttribute="centerX" id="94N-1U-16e"/>
-                                    <constraint firstItem="GD4-5G-I02" firstAttribute="bottom" secondItem="Q6W-rl-XkX" secondAttribute="bottomMargin" id="R1Y-7z-GxY"/>
-                                    <constraint firstItem="GD4-5G-I02" firstAttribute="top" secondItem="Ojw-af-DUc" secondAttribute="bottom" constant="62" id="TAP-xL-2Hg"/>
-                                    <constraint firstItem="gT9-sY-zK1" firstAttribute="leading" secondItem="Q6W-rl-XkX" secondAttribute="leading" id="XTH-cf-ouw"/>
-                                    <constraint firstAttribute="trailing" secondItem="gT9-sY-zK1" secondAttribute="trailing" id="p2Q-sQ-1xk"/>
-                                    <constraint firstItem="gT9-sY-zK1" firstAttribute="top" secondItem="Q6W-rl-XkX" secondAttribute="top" id="p4V-4V-sO2"/>
-                                    <constraint firstAttribute="bottom" secondItem="gT9-sY-zK1" secondAttribute="bottom" constant="-3" id="wCv-6j-M3F"/>
-                                    <constraint firstItem="GD4-5G-I02" firstAttribute="centerX" secondItem="gT9-sY-zK1" secondAttribute="centerX" id="xX3-gJ-geQ"/>
+                                    <constraint firstItem="OG4-AD-tIv" firstAttribute="top" secondItem="Ojw-af-DUc" secondAttribute="bottom" constant="8" symbolic="YES" id="2wC-p7-VcD"/>
+                                    <constraint firstItem="Ojw-af-DUc" firstAttribute="leading" secondItem="OG4-AD-tIv" secondAttribute="leading" id="dBf-eD-Hfb"/>
+                                    <constraint firstItem="OG4-AD-tIv" firstAttribute="centerX" secondItem="Q6W-rl-XkX" secondAttribute="centerX" id="gcz-mE-J3t"/>
+                                    <constraint firstItem="OG4-AD-tIv" firstAttribute="trailing" secondItem="Ojw-af-DUc" secondAttribute="trailing" id="y7o-AN-i7u"/>
+                                    <constraint firstAttribute="bottom" secondItem="OG4-AD-tIv" secondAttribute="bottom" constant="20" id="yve-z5-lIT"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="bottom" id="0E8-CR-Xro"/>
-                            <constraint firstItem="L8i-fo-BYb" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" id="4Wc-F2-apj"/>
-                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" constant="348" id="5I5-BW-Nqz"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="Q6W-rl-XkX" secondAttribute="leading" id="93o-SI-dLe"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="trailing" secondItem="Q6W-rl-XkX" secondAttribute="trailing" id="0Z3-7s-BXh"/>
+                            <constraint firstItem="L8i-fo-BYb" firstAttribute="leading" secondItem="dCc-Mt-OFA" secondAttribute="leading" id="1D2-Wy-XH5"/>
+                            <constraint firstItem="L8i-fo-BYb" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" id="1qN-pI-yLF"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="top" secondItem="L8i-fo-BYb" secondAttribute="bottom" id="55Y-RR-PVj"/>
+                            <constraint firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="8eU-Qa-RKB"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="Q6W-rl-XkX" secondAttribute="leading" id="B5U-cj-kLf"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="bottom" secondItem="gTw-36-L4C" secondAttribute="top" id="Dg3-Lv-eoT"/>
                             <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" constant="345" id="FEb-BG-Kgp"/>
-                            <constraint firstAttribute="trailing" secondItem="Q6W-rl-XkX" secondAttribute="trailing" id="LY8-T8-QYr"/>
-                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="NOP-LC-nQP"/>
-                            <constraint firstItem="L8i-fo-BYb" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="Og5-De-Vfn"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="L8i-fo-BYb" secondAttribute="leading" id="UQP-PP-TfS"/>
-                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="bottom" id="beD-Xf-Kks"/>
-                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="dCc-Mt-OFA" secondAttribute="leading" id="oLw-ti-Mc9"/>
-                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="bottom" secondItem="gTw-36-L4C" secondAttribute="top" id="yg9-2o-KFk"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="dCc-Mt-OFA" secondAttribute="top" constant="348" id="T5z-hL-x6i"/>
+                            <constraint firstItem="6KO-vg-NcS" firstAttribute="leading" secondItem="L8i-fo-BYb" secondAttribute="leading" id="XqB-GE-w4T"/>
+                            <constraint firstItem="L8i-fo-BYb" firstAttribute="trailing" secondItem="6KO-vg-NcS" secondAttribute="trailing" id="rYx-xU-DXz"/>
+                            <constraint firstItem="Q6W-rl-XkX" firstAttribute="top" secondItem="6KO-vg-NcS" secondAttribute="bottom" id="ylG-Ev-vYv"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -402,16 +406,139 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Enter Studying Location" id="eQl-bh-5E5"/>
                     <connections>
                         <outlet property="findOnTheMapButton" destination="Ojw-af-DUc" id="tVg-CC-CNl"/>
-                        <outlet property="mapView" destination="gT9-sY-zK1" id="pAm-u4-h4T"/>
-                        <outlet property="selectLocationButton" destination="GD4-5G-I02" id="KgC-5h-cgT"/>
                         <outlet property="studyingLocationTextField" destination="HpU-4Q-g03" id="5tb-S7-Aqr"/>
+                        <segue destination="SFi-e9-zIJ" kind="show" identifier="ShowSelectLocation" id="V5I-Fh-u8w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mmq-b1-jkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3504" y="372"/>
+            <point key="canvasLocation" x="4316" y="372"/>
+        </scene>
+        <!--Select Location View Controller-->
+        <scene sceneID="rqZ-DT-PZF">
+            <objects>
+                <viewController id="SFi-e9-zIJ" customClass="SelectLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="POj-WJ-2wn"/>
+                        <viewControllerLayoutGuide type="bottom" id="b0u-yE-JIm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZFa-qy-zZI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ji0-Lz-xpm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki4-BG-W8Q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="151"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2s-Ag-GPu">
+                                        <rect key="frame" x="46" y="26" width="508" height="99"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w72-3z-QlA">
+                                        <rect key="frame" x="562" y="56" width="30" height="39"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="23"/>
+                                        <state key="normal" title="&gt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextPlacemarkButtonTouchUpInside:" destination="SFi-e9-zIJ" eventType="touchUpInside" id="96g-rT-wjG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Td-AT-mgc">
+                                        <rect key="frame" x="8" y="56" width="30" height="39"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="23"/>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="previousPlacemarkButtonTouchUpInside:" destination="SFi-e9-zIJ" eventType="touchUpInside" id="w9Z-L1-jO6"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N of M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd2-ZK-Qjo">
+                                        <rect key="frame" x="46" y="133" width="508" height="10"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="v2s-Ag-GPu" firstAttribute="trailing" secondItem="Fd2-ZK-Qjo" secondAttribute="trailing" id="2DQ-3r-7X0"/>
+                                    <constraint firstItem="v2s-Ag-GPu" firstAttribute="leading" secondItem="2Td-AT-mgc" secondAttribute="trailing" constant="8" symbolic="YES" id="Cbm-sU-eLm"/>
+                                    <constraint firstItem="2Td-AT-mgc" firstAttribute="top" secondItem="Ki4-BG-W8Q" secondAttribute="top" constant="56" id="FX6-tt-iV2"/>
+                                    <constraint firstItem="Fd2-ZK-Qjo" firstAttribute="leading" secondItem="Ki4-BG-W8Q" secondAttribute="leading" constant="46" id="ICh-BV-YXL"/>
+                                    <constraint firstItem="Fd2-ZK-Qjo" firstAttribute="top" secondItem="v2s-Ag-GPu" secondAttribute="bottom" constant="8" symbolic="YES" id="JbD-l4-EfJ"/>
+                                    <constraint firstItem="v2s-Ag-GPu" firstAttribute="top" secondItem="Ki4-BG-W8Q" secondAttribute="top" constant="26" id="PhH-m4-O3w"/>
+                                    <constraint firstItem="Fd2-ZK-Qjo" firstAttribute="bottom" secondItem="Ki4-BG-W8Q" secondAttribute="bottomMargin" id="TkM-q9-Cay"/>
+                                    <constraint firstItem="2Td-AT-mgc" firstAttribute="centerY" secondItem="Ki4-BG-W8Q" secondAttribute="centerY" id="abg-V0-BFb"/>
+                                    <constraint firstItem="w72-3z-QlA" firstAttribute="leading" secondItem="v2s-Ag-GPu" secondAttribute="trailing" constant="8" symbolic="YES" id="hFZ-Kb-K2B"/>
+                                    <constraint firstItem="Fd2-ZK-Qjo" firstAttribute="centerX" secondItem="Ki4-BG-W8Q" secondAttribute="centerX" id="hbr-ui-8tP"/>
+                                    <constraint firstItem="w72-3z-QlA" firstAttribute="baseline" secondItem="2Td-AT-mgc" secondAttribute="baseline" id="hdR-KU-Mq9"/>
+                                    <constraint firstItem="2Td-AT-mgc" firstAttribute="centerY" secondItem="v2s-Ag-GPu" secondAttribute="centerY" id="ojn-fI-obS"/>
+                                    <constraint firstItem="v2s-Ag-GPu" firstAttribute="leading" secondItem="Fd2-ZK-Qjo" secondAttribute="leading" id="yeT-cN-rC8"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVO-zy-8Te" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
+                                <rect key="frame" x="230" y="549" width="140" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTouchUpInside:" destination="SFi-e9-zIJ" eventType="touchUpInside" id="24h-gP-BNT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YI-J2-fc6" customClass="RoundedUIButton" customModule="On_The_Map" customModuleProvider="target">
+                                <rect key="frame" x="230" y="510" width="140" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" title="Select Location">
+                                    <color key="titleColor" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectLocationButtonTouchUpInside:" destination="SFi-e9-zIJ" eventType="touchUpInside" id="VpL-5M-04a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ji0-Lz-xpm" firstAttribute="leading" secondItem="Ki4-BG-W8Q" secondAttribute="leading" id="59v-mc-iYG"/>
+                            <constraint firstItem="qVO-zy-8Te" firstAttribute="top" secondItem="9YI-J2-fc6" secondAttribute="bottom" constant="8" symbolic="YES" id="8oF-vp-Kcm"/>
+                            <constraint firstItem="ji0-Lz-xpm" firstAttribute="trailing" secondItem="Ki4-BG-W8Q" secondAttribute="trailing" id="F7f-pa-h6Z"/>
+                            <constraint firstItem="ji0-Lz-xpm" firstAttribute="bottom" secondItem="b0u-yE-JIm" secondAttribute="top" id="P7m-cd-z82"/>
+                            <constraint firstAttribute="bottom" secondItem="qVO-zy-8Te" secondAttribute="bottom" constant="20" symbolic="YES" id="PQe-5I-B6t"/>
+                            <constraint firstItem="Ki4-BG-W8Q" firstAttribute="centerX" secondItem="9YI-J2-fc6" secondAttribute="centerX" id="W4q-wo-fRh"/>
+                            <constraint firstItem="ji0-Lz-xpm" firstAttribute="top" secondItem="ZFa-qy-zZI" secondAttribute="top" id="WeE-hf-izl"/>
+                            <constraint firstItem="qVO-zy-8Te" firstAttribute="trailing" secondItem="9YI-J2-fc6" secondAttribute="trailing" id="dnw-SQ-gTx"/>
+                            <constraint firstItem="Ki4-BG-W8Q" firstAttribute="leading" secondItem="ZFa-qy-zZI" secondAttribute="leading" id="m0M-Ft-WXu"/>
+                            <constraint firstItem="9YI-J2-fc6" firstAttribute="leading" secondItem="qVO-zy-8Te" secondAttribute="leading" id="mco-tk-TEG"/>
+                            <constraint firstAttribute="trailing" secondItem="Ki4-BG-W8Q" secondAttribute="trailing" id="q5f-jR-fge"/>
+                            <constraint firstItem="ji0-Lz-xpm" firstAttribute="top" secondItem="Ki4-BG-W8Q" secondAttribute="top" id="wfv-TF-Gaq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentLocationLabel" destination="v2s-Ag-GPu" id="1fk-4U-DGx"/>
+                        <outlet property="mapView" destination="ji0-Lz-xpm" id="cWc-wf-Lxe"/>
+                        <outlet property="nextLocationButton" destination="w72-3z-QlA" id="Whw-DR-seZ"/>
+                        <outlet property="previousLocationButton" destination="2Td-AT-mgc" id="oZd-Sr-YFa"/>
+                        <outlet property="resultIndexLabel" destination="Fd2-ZK-Qjo" id="g7I-Qh-uku"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEM-v5-tef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5054" y="372"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OKJ-A4-Pup">
@@ -469,6 +596,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3e-ez-4OZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1977" y="718"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h1u-mc-q8y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uQx-bd-G9S" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sgn-Qu-AOc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vnw-9y-b54" kind="relationship" relationship="rootViewController" id="gql-Rd-jbF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qno-J2-pgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3504" y="372"/>
         </scene>
     </scenes>
     <resources>

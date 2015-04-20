@@ -26,6 +26,16 @@ public struct StudentLocation: Deserializable, Printable {
     public var updatedAt: NSDate?
     public var ACL: AnyObject?
     
+    public init(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaURL: NSURL, latitude: Float, longitude: Float) {
+        self.uniqueKey = uniqueKey
+        self.firstName = firstName
+        self.lastName = lastName
+        self.mapString = mapString
+        self.mediaURL = mediaURL
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
     public init(data: [String: AnyObject]) {
         objectId  <-- data["objectId"]
         uniqueKey <-- data["uniqueKey"]

@@ -13,51 +13,39 @@ import CoreLocation
 class EnterLocationViewController: UIViewController {
 
     @IBOutlet weak var studyingLocationTextField: UITextField!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var findOnTheMapButton: RoundedUIButton!
-    @IBOutlet weak var selectLocationButton: RoundedUIButton!
     
+    /* CLGeocoder for forward encoding the location string entered later */
     let geocoder = CLGeocoder()
     
-    var geocodedPlacemarks: [CLPlacemark]? {
-        didSet {
-            mapView.hidden = false
-            selectLocationButton.hidden = false
-            findOnTheMapButton.hidden = true
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    /* forward geocode the text in studyingLocationTextField */
     @IBAction func findOnTheMapButtonTouchUpInside(sender: UIButton) {
         if let addressString = studyingLocationTextField?.text {
             geocoder.geocodeAddressString(addressString) { result, error in
-                
                 if let error = error {
+                    //TODO: - Alert user of error
                     println(error)
                 } else {
-                    self.geocodedPlacemarks = result as? [CLPlacemark]
+                    /* Segue to SelectLocationViewController with an array of CLPlacemark */
+                    self.performSegueWithIdentifier("ShowSelectLocation", sender: (result as! [CLPlacemark]))
                 }
                 
             }
         }
     }
-
-    /*
+    
+    /* dismiss the view controller: the navigation controller */
+    @IBAction func cancelButtonTouchUpInside(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let dvc = segue.destinationViewController as? SelectLocationViewController {
+            dvc.placemarks = sender as! [CLPlacemark]
+        }
     }
-    */
 
 }

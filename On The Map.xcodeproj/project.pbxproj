@@ -15,6 +15,7 @@
 		FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */; };
 		FB6AB9AD1AE02F3D00A3CA8A /* JSONHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */; };
 		FB6AB9AF1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9AE1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift */; };
+		FB6AB9B31AE53FFC00A3CA8A /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9B21AE53FFC00A3CA8A /* SelectLocationViewController.swift */; };
 		FB81D3FB1ADEB91B007B2284 /* StudentLocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */; };
 		FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8300A11AD5B94C00740C65 /* AppDelegate.swift */; };
 		FB8300A71AD5B94C00740C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8300A51AD5B94C00740C65 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONHelper.framework; path = Carthage/Build/iOS/JSONHelper.framework; sourceTree = "<group>"; };
 		FB6AB9AE1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationAnnotation.swift; sourceTree = "<group>"; };
+		FB6AB9B21AE53FFC00A3CA8A /* SelectLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClient.swift; sourceTree = "<group>"; };
 		FB83009C1AD5B94C00740C65 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8300A01AD5B94C00740C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				FB8300E41AD5C35600740C65 /* MapViewController.swift */,
 				FB8300E61AD5C35E00740C65 /* ListViewController.swift */,
 				FB0BB35E1ADD7ED000F63328 /* EnterLocationViewController.swift */,
+				FB6AB9B21AE53FFC00A3CA8A /* SelectLocationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				FB8300E51AD5C35600740C65 /* MapViewController.swift in Sources */,
 				FBBFA42E1AD609A700E7313D /* UdacityClient.swift in Sources */,
 				FB8300E71AD5C35E00740C65 /* ListViewController.swift in Sources */,
+				FB6AB9B31AE53FFC00A3CA8A /* SelectLocationViewController.swift in Sources */,
 				FB81D3FB1ADEB91B007B2284 /* StudentLocationClient.swift in Sources */,
 				FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */,
 				FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */,
@@ -659,6 +663,7 @@
 				FB6AB9A71AE01EC100A3CA8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB8300971AD5B94C00740C65 /* Build configuration list for PBXProject "On The Map" */ = {
 			isa = XCConfigurationList;
