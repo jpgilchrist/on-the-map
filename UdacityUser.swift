@@ -9,7 +9,7 @@
 import Foundation
 
 struct UdacityUser: Printable {
-    let userID : Int
+    let userID : String
     let firstName: String
     let lastName: String
     

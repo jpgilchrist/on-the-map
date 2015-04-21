@@ -1,2 +1,3 @@
 github "Alamofire/Alamofire" >= 1.2
 github "isair/JSONHelper" >= 1.5.4
+github "facebook/facebook-ios-sdk" >= 4.0.1

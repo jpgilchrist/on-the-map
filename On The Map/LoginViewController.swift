@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
@@ -23,14 +24,22 @@ class LoginViewController: UIViewController {
     /* login button */
     @IBOutlet weak var loginButton: UIButton!
     
-    /* Sign In with Facebook Button */
-    @IBOutlet weak var signInWithFacebookButton: UIButton!
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         debugLabel.text = ""
         self.activityIndicator.stopAnimating()
+        
+        /* setup facebook login button */
+        facebookLoginButton.readPermissions = ["public_profile", "email"]
+        facebookLoginButton.delegate = self
+        
+        if let token = FBSDKAccessToken.currentAccessToken() {
+            loginWithAccessToken(token)
+        }
     }
     
 
@@ -46,11 +55,7 @@ class LoginViewController: UIViewController {
                 if success {
                     self.completeLogin()
                 } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.loginButton.enabled = true
-                        self.activityIndicator.stopAnimating()
-                        self.debugLabel.text = errorString!
-                    }
+                    self.handleLoginError(errorString!)
                 }
         }
     }
@@ -58,13 +63,6 @@ class LoginViewController: UIViewController {
     @IBAction func signUpButtonTouchUpInside(sender: UIButton) {
         println("TODO: Implement signUpButtonTouchUpInside")
         let controller = cancelableUIAlertController(title: "Sign Up Button", message: "TODO: Implement sign up button")
-        
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    @IBAction func signInWithFacebookButtonTouchUpInside(sender: AnyObject) {
-        println("TODO: Implement signInWithFacebookTouchUpInside")
-        let controller = cancelableUIAlertController(title: "Facebook Button", message: "TODO: Implement sign in with facebook")
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
@@ -84,9 +82,63 @@ class LoginViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             self.debugLabel.text = ""
             self.loginButton.enabled = true
-            
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("RootTabBar") as! UITabBarController
-            self.presentViewController(controller, animated: true, completion: nil)
         }
+        
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("RootTabBar") as! UITabBarController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func handleLoginError(errorString: String) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.loginButton.enabled = true
+            self.activityIndicator.stopAnimating()
+            self.debugLabel.text = errorString
+        }
+    }
+}
+
+/* Extend LoginViewController to handle FBSDKLoginButton delegate methods */
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        
+        if let error = error {
+            let controller = cancelableUIAlertController(title: "Facebook Login Error", message: "\(error)")
+            self.presentViewController(controller, animated: true, completion: nil)
+        } else if result.isCancelled {
+            println("Facebook Login was cancelled")
+        } else {
+            if result.grantedPermissions.contains("email") && result.grantedPermissions.contains("public_profile") {
+                if let token = result.token {
+                    
+                    loginWithAccessToken(token)
+                    
+                } else {
+                    let controller = cancelableUIAlertController(title: "Facebook Login Error", message: "Invalid token.")
+                    self.presentViewController(controller, animated: true, completion: nil)
+                }
+            } else {
+                let controller = cancelableUIAlertController(title: "Facebook Login Error", message: "Please enable permissions for Public Profile and Email access.")
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func loginWithAccessToken(accessToken: FBSDKAccessToken) {
+        self.loginButton.enabled = false
+        self.activityIndicator.startAnimating()
+        
+        UdacityClient.sharedInstance().loginWithFacebook(accessToken.tokenString) { success, errorString in
+            
+            if success {
+                self.completeLogin()
+            } else {
+                self.handleLoginError(errorString!)
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        println("User Logged Out")
     }
 }
