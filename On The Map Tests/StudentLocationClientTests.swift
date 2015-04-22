@@ -114,10 +114,10 @@ class StudentLocationClientTests: XCTestCase {
         
         let exp = expectationWithDescription("StudentLocationClientTests.testDestroyStudentLocationByObjectId")
         
-        StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId("Ir5wfOucEF") { success, json, error in
+        StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId("Ir5wfOucEF") { success, error in
             XCTAssertNil(error, "\(error)")
             
-            println("RESULT \(success) \(json) \(error)")
+            println("RESULT \(success) \(error)")
             
             exp.fulfill()
         }

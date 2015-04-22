@@ -115,17 +115,16 @@ public class StudentLocationClient {
     }
     
     public func destroyStudentLocationByObjectId(objectId: String,
-        completionHandler: StudentLocationObjectCompletionHandler) {
+        completionHandler: (success: Bool, error: NSError!) -> Void) {
             
             Alamofire.request(Router.DestroyStudentLocation(objectId: objectId))
                 .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                     
                     if let error = error {
-                        completionHandler(success: false, studentLocation: nil, error: error)
+                        completionHandler(success: false, error: error)
                     } else {
-                        
-                        completionHandler(success: true, studentLocation: nil, error: nil)
+                        completionHandler(success: true, error: nil)
                     }
             }
     }
@@ -188,7 +187,7 @@ public class StudentLocationClient {
             case .CreateStudentLocation(let parameters):
                 return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
             case .ReadStudentLocations(let limit):
-                return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["limit": limit]).0
+                return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["limit": limit, "order":"-createdAt"]).0
             case .UpdateStudentLocation(_, let parameters):
                 return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
             case .FindByUniqueKey(let uniqueKey):

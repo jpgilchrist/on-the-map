@@ -67,7 +67,7 @@
 		FB0BB35E1ADD7ED000F63328 /* EnterLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLocationViewController.swift; sourceTree = "<group>"; };
 		FB4875071AD84A1C0014EB72 /* StudentLocationUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationUITableView.swift; sourceTree = "<group>"; };
 		FB6AB9941AE0021300A3CA8A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		FB6AB99D1AE01EC100A3CA8A /* On The Map Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The Map Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6AB99D1AE01EC100A3CA8A /* OnTheMap Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnTheMap Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6AB9A01AE01EC100A3CA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClientTests.swift; sourceTree = "<group>"; };
 		FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		FB6AB9BE1AE6A90E00A3CA8A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FB6AB9C11AE6D83100A3CA8A /* UserPinsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPinsViewController.swift; sourceTree = "<group>"; };
 		FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClient.swift; sourceTree = "<group>"; };
-		FB83009C1AD5B94C00740C65 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB83009C1AD5B94C00740C65 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8300A01AD5B94C00740C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8300A11AD5B94C00740C65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB8300A61AD5B94C00740C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,8 +203,8 @@
 		FB83009D1AD5B94C00740C65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB83009C1AD5B94C00740C65 /* On The Map.app */,
-				FB6AB99D1AE01EC100A3CA8A /* On The Map Tests.xctest */,
+				FB83009C1AD5B94C00740C65 /* OnTheMap.app */,
+				FB6AB99D1AE01EC100A3CA8A /* OnTheMap Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -327,9 +327,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB6AB99C1AE01EC100A3CA8A /* On The Map Tests */ = {
+		FB6AB99C1AE01EC100A3CA8A /* OnTheMap Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB6AB9A51AE01EC100A3CA8A /* Build configuration list for PBXNativeTarget "On The Map Tests" */;
+			buildConfigurationList = FB6AB9A51AE01EC100A3CA8A /* Build configuration list for PBXNativeTarget "OnTheMap Tests" */;
 			buildPhases = (
 				FB6AB9991AE01EC100A3CA8A /* Sources */,
 				FB6AB99A1AE01EC100A3CA8A /* Frameworks */,
@@ -340,14 +340,14 @@
 			dependencies = (
 				FB6AB9A41AE01EC100A3CA8A /* PBXTargetDependency */,
 			);
-			name = "On The Map Tests";
+			name = "OnTheMap Tests";
 			productName = "On The Map Tests";
-			productReference = FB6AB99D1AE01EC100A3CA8A /* On The Map Tests.xctest */;
+			productReference = FB6AB99D1AE01EC100A3CA8A /* OnTheMap Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FB83009B1AD5B94C00740C65 /* On The Map */ = {
+		FB83009B1AD5B94C00740C65 /* OnTheMap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB8300BB1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "On The Map" */;
+			buildConfigurationList = FB8300BB1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "OnTheMap" */;
 			buildPhases = (
 				FB8300981AD5B94C00740C65 /* Sources */,
 				FB8300991AD5B94C00740C65 /* Frameworks */,
@@ -358,9 +358,9 @@
 			);
 			dependencies = (
 			);
-			name = "On The Map";
+			name = OnTheMap;
 			productName = "On The Map";
-			productReference = FB83009C1AD5B94C00740C65 /* On The Map.app */;
+			productReference = FB83009C1AD5B94C00740C65 /* OnTheMap.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -381,7 +381,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB8300971AD5B94C00740C65 /* Build configuration list for PBXProject "On The Map" */;
+			buildConfigurationList = FB8300971AD5B94C00740C65 /* Build configuration list for PBXProject "OnTheMap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -394,8 +394,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB83009B1AD5B94C00740C65 /* On The Map */,
-				FB6AB99C1AE01EC100A3CA8A /* On The Map Tests */,
+				FB83009B1AD5B94C00740C65 /* OnTheMap */,
+				FB6AB99C1AE01EC100A3CA8A /* OnTheMap Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -493,7 +493,7 @@
 /* Begin PBXTargetDependency section */
 		FB6AB9A41AE01EC100A3CA8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FB83009B1AD5B94C00740C65 /* On The Map */;
+			target = FB83009B1AD5B94C00740C65 /* OnTheMap */;
 			targetProxy = FB6AB9A31AE01EC100A3CA8A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -535,7 +535,7 @@
 				INFOPLIST_FILE = "On The Map Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "OnTheMap Tests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
 			};
 			name = Debug;
@@ -553,7 +553,7 @@
 				INFOPLIST_FILE = "On The Map Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "OnTheMap Tests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/On The Map.app/On The Map";
 			};
 			name = Release;
@@ -647,7 +647,7 @@
 				);
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OnTheMap;
 			};
 			name = Debug;
 		};
@@ -663,14 +663,14 @@
 				);
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OnTheMap;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB6AB9A51AE01EC100A3CA8A /* Build configuration list for PBXNativeTarget "On The Map Tests" */ = {
+		FB6AB9A51AE01EC100A3CA8A /* Build configuration list for PBXNativeTarget "OnTheMap Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB6AB9A61AE01EC100A3CA8A /* Debug */,
@@ -679,7 +679,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB8300971AD5B94C00740C65 /* Build configuration list for PBXProject "On The Map" */ = {
+		FB8300971AD5B94C00740C65 /* Build configuration list for PBXProject "OnTheMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB8300B91AD5B94C00740C65 /* Debug */,
@@ -688,7 +688,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB8300BB1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "On The Map" */ = {
+		FB8300BB1AD5B94C00740C65 /* Build configuration list for PBXNativeTarget "OnTheMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB8300BC1AD5B94C00740C65 /* Debug */,

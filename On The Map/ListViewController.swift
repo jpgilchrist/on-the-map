@@ -12,9 +12,8 @@ class ListViewController: UIViewController {
 
     @IBOutlet weak var tableView: StudentLocationUITableView!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         fetchAndUpdateStudentLocations()
     }

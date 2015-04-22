@@ -13,10 +13,6 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: StudentLocationMKMapView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

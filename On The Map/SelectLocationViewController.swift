@@ -102,8 +102,8 @@ class SelectLocationViewController: UIViewController {
                     
                     /* 2.2) Create a StudentLocation Object for the StudentLocationClient */
                     let currentUser = UdacityClient.sharedInstance().user!
-                    let currentLocation = self.placemarks[self.currentIndex].location
-                    let studentLocation = StudentLocation(uniqueKey: "\(currentUser.userID)", firstName: currentUser.firstName, lastName: currentUser.lastName, mapString: urlString, mediaURL: url, latitude: Float(currentLocation.coordinate.latitude), longitude: Float(currentLocation.coordinate.longitude))
+                    let currentPlacemark = self.placemarks[self.currentIndex]
+                    let studentLocation = StudentLocation(uniqueKey: "\(currentUser.userID)", firstName: currentUser.firstName, lastName: currentUser.lastName, mapString: currentPlacemark.formattedAddress, mediaURL: url, latitude: Float(currentPlacemark.location.coordinate.latitude), longitude: Float(currentPlacemark.location.coordinate.longitude))
                     
                     /* 2.3) Call the StudentLocationClient and create a new student location */
                     StudentLocationClient.sharedInstance().createStudentLocation(studentLocation) { success, studentLocation, error in

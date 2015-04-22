@@ -14,6 +14,8 @@ class UserPinsViewController: UIViewController {
     var usersLocations:[StudentLocation]!
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,12 @@ class UserPinsViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        facebookLoginButton.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         fetchUsersStudentLocations()
     }
@@ -42,52 +50,55 @@ class UserPinsViewController: UIViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func editButtonTouchUpInside(sender: UIBarButtonItem) {
+        if tableView.editing {
+            tableView.setEditing(false, animated: true)
+            editButton.title = "Edit"
+        } else {
+            tableView.setEditing(true, animated: true)
+            editButton.title = "Cancel"
+        }
     }
-
 }
 
 extension UserPinsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return 1
-        } else {
-            return usersLocations.count
-        }
+        return usersLocations.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell!
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as! UITableViewCell
         
-        if indexPath.section == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier("LoginButtonCell") as! UITableViewCell
-            
-            var facebookLoginButton = FBSDKLoginButton()
-            facebookLoginButton.delegate = self
-            
-            cell.addSubview(facebookLoginButton)
-            facebookLoginButton.center = CGPoint(x: view.bounds.width / 2.0, y: 22.0)
-            
-        } else {
-            cell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as! UITableViewCell
-            
-            let location = usersLocations[indexPath.row]
-            
-            cell.textLabel?.text = location.mapString
-            cell.detailTextLabel?.text = location.mediaURL?.absoluteString
-        }
+        cell.textLabel?.text = usersLocations[indexPath.row].mapString
+        cell.detailTextLabel?.text = usersLocations[indexPath.row].mediaURL?.absoluteString
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            let locationToDelete = self.usersLocations[indexPath.row]
+            
+            tableView.beginUpdates()
+            
+            self.usersLocations.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            tableView.endUpdates()
+            
+            StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId(locationToDelete.objectId!) { success, error in
+                
+                if let error = error {
+                    println("Error deleting \(error)")
+                } else {
+                    self.fetchUsersStudentLocations()
+                }
+            }
+        }
     }
 }
 
