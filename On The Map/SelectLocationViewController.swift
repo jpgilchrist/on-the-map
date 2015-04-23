@@ -36,6 +36,7 @@ class SelectLocationViewController: UIViewController {
     @IBOutlet weak var resultIndexLabel: UILabel!
     @IBOutlet weak var previousLocationButton: UIButton!
     @IBOutlet weak var nextLocationButton: UIButton!
+    @IBOutlet weak var activityIndicatorView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,53 +79,15 @@ class SelectLocationViewController: UIViewController {
     }
     
     /* pop to root view controller (i.e., EnterLocationViewController) */
-    @IBAction func cancelButtonTouchUpInside(sender: UIButton) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func cancelButtonTouchUpInside(sender: UIBarButtonItem) {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    /* sets up an alert to ask the user for a URL to add to their stuyding location */
-    @IBAction func selectLocationButtonTouchUpInside(sender: UIButton) {
-        var inputURLTextField: UITextField!
-        
-        var enterLinkAlertController = UIAlertController(title: "Study Location Link", message: "Enter a link to be displayed where you are studying.", preferredStyle: UIAlertControllerStyle.Alert)
-
-        /* 1. Add text field to alert view and make it accessible locally */
-        enterLinkAlertController.addTextFieldWithConfigurationHandler { textField in
-            textField.placeholder = "Your URL"
-            inputURLTextField = textField
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowEnterURL" {
+            let controller = segue.destinationViewController as! EnterURLViewController
+            controller.placemark = self.placemarks[self.currentIndex]
         }
-        
-        /* 2. Add "OK" action that creates a new student location */
-        enterLinkAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { alertAction in
-            /* 2.1) Get the text from the text field */
-            if let urlString = inputURLTextField?.text {
-                if let url = NSURL(string: urlString) {
-                    
-                    /* 2.2) Create a StudentLocation Object for the StudentLocationClient */
-                    let currentUser = UdacityClient.sharedInstance().user!
-                    let currentPlacemark = self.placemarks[self.currentIndex]
-                    let studentLocation = StudentLocation(uniqueKey: "\(currentUser.userID)", firstName: currentUser.firstName, lastName: currentUser.lastName, mapString: currentPlacemark.formattedAddress, mediaURL: url, latitude: Float(currentPlacemark.location.coordinate.latitude), longitude: Float(currentPlacemark.location.coordinate.longitude))
-                    
-                    /* 2.3) Call the StudentLocationClient and create a new student location */
-                    StudentLocationClient.sharedInstance().createStudentLocation(studentLocation) { success, studentLocation, error in
-
-                        /* 2.4 If successful dismiss the current view controller: the navigation controller */
-                        if success {
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                        } else {
-                            //TODO: - Otherwise throw an alert somehow
-                            println("There was an errror \(error)")
-                        }
-                    }
-                }
-            }
-        })
-        
-        /* 3. Add "Cancel" action */
-        enterLinkAlertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-
-        /* 4. Present the View Controller */
-        self.presentViewController(enterLinkAlertController, animated: true, completion: nil)
     }
 }
 

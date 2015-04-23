@@ -90,3 +90,9 @@ public struct StudentLocation: Deserializable, Printable {
         return studentLocationAnnotations
     }
 }
+
+extension StudentLocation {
+    var fullName: String {
+        return "\(firstName!) \(lastName!)"
+    }
+}

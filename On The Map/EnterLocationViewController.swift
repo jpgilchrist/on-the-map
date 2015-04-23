@@ -14,28 +14,51 @@ class EnterLocationViewController: UIViewController {
 
     @IBOutlet weak var studyingLocationTextField: UITextField!
     @IBOutlet weak var findOnTheMapButton: RoundedUIButton!
+    @IBOutlet weak var activityIndicatorView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorLabel: UILabel!
     
     /* CLGeocoder for forward encoding the location string entered later */
     let geocoder = CLGeocoder()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        activityIndicatorView.hidden = true
+        
+        self.studyingLocationTextField.delegate = self
+    }
+    
     /* forward geocode the text in studyingLocationTextField */
     @IBAction func findOnTheMapButtonTouchUpInside(sender: UIButton) {
         if let addressString = studyingLocationTextField?.text {
+            
+            activityIndicatorView.hidden = false
+            findOnTheMapButton.hidden = true
+            
             geocoder.geocodeAddressString(addressString) { result, error in
                 if let error = error {
-                    //TODO: - Alert user of error
-                    println(error)
+                    self.alertGeocodeError(error)
                 } else {
                     /* Segue to SelectLocationViewController with an array of CLPlacemark */
                     self.performSegueWithIdentifier("ShowSelectLocation", sender: (result as! [CLPlacemark]))
                 }
-                
+                self.activityIndicatorView.hidden = true
+                self.findOnTheMapButton.hidden = false
             }
         }
     }
     
+    func alertGeocodeError(error: NSError) {
+        var controller = UIAlertController(title: "Location Error", message: "The location couldn't be geocoded. Try a different address string", preferredStyle: .Alert)
+        
+        controller.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
     /* dismiss the view controller: the navigation controller */
-    @IBAction func cancelButtonTouchUpInside(sender: UIButton) {
+    @IBAction func cancelButtonTouchUpInside(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -48,4 +71,11 @@ class EnterLocationViewController: UIViewController {
         }
     }
 
+}
+
+extension EnterLocationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

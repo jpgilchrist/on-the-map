@@ -17,6 +17,14 @@ class MapViewController: UIViewController {
         super.viewWillAppear(animated)
         
         fetchAndUpdateStudentLocations()
+        
+        startListeningForMalformedURLNotification()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopListeningForMalformedURLNotification()
     }
     
     @IBAction func fetchAndUpdateStudentLocations() {
@@ -32,4 +40,30 @@ class MapViewController: UIViewController {
             }
         }
     }
+    
+    func startListeningForMalformedURLNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleMalformedURL:", name: "MalformedURL", object: nil)
+    }
+    
+    func stopListeningForMalformedURLNotification() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "MalformedURL", object: nil)
+    }
+    
+    func handleMalformedURL(notification: NSNotification) {
+        
+        var message: String!
+        if let userInfo = notification.userInfo {
+            let url = userInfo["url"] as! NSURL
+            message = "Oops. Cannot open the url: \(url.absoluteString!). It appears to be malformed."
+        } else {
+            message = "Oops. There's no URL associated with this location."
+        }
+        
+        var alertController = UIAlertController(title: "Invalid URL", message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    
 }

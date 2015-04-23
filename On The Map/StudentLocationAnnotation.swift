@@ -59,6 +59,15 @@ class StudentLocationAnnotation: NSObject, MKAnnotation {
     }
     
     func touchUpInside(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(self.studentLocation!.mediaURL!)
+        if let url = studentLocation?.mediaURL {
+            var didOpen = UIApplication.sharedApplication().openURL(self.studentLocation!.mediaURL!)
+            
+            if !didOpen {
+                NSNotificationCenter.defaultCenter().postNotificationName("MalformedURL", object: nil, userInfo: ["url": url])
+                
+            }
+        } else {
+            NSNotificationCenter.defaultCenter().postNotificationName("MalformedURL", object: nil)
+        }
     }
 }

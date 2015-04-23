@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FB0BB35D1ADD790E00F63328 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0BB35C1ADD790E00F63328 /* RoundedButton.swift */; };
 		FB0BB35F1ADD7ED000F63328 /* EnterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0BB35E1ADD7ED000F63328 /* EnterLocationViewController.swift */; };
-		FB4875081AD84A1C0014EB72 /* StudentLocationUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4875071AD84A1C0014EB72 /* StudentLocationUITableView.swift */; };
 		FB6AB9971AE0078100A3CA8A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9941AE0021300A3CA8A /* Alamofire.framework */; };
 		FB6AB9A91AE020B900A3CA8A /* StudentLocationClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */; };
 		FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */; };
@@ -20,6 +19,8 @@
 		FB6AB9BF1AE6A90E00A3CA8A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9BD1AE6A90E00A3CA8A /* FBSDKCoreKit.framework */; };
 		FB6AB9C01AE6A90E00A3CA8A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9BE1AE6A90E00A3CA8A /* FBSDKLoginKit.framework */; };
 		FB6AB9C21AE6D83100A3CA8A /* UserPinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9C11AE6D83100A3CA8A /* UserPinsViewController.swift */; };
+		FB6AB9C41AE8269D00A3CA8A /* StudentLocationUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9C31AE8269D00A3CA8A /* StudentLocationUITableView.swift */; };
+		FB6AB9C91AE96A5300A3CA8A /* EnterURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9C81AE96A5300A3CA8A /* EnterURLViewController.swift */; };
 		FB81D3FB1ADEB91B007B2284 /* StudentLocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */; };
 		FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8300A11AD5B94C00740C65 /* AppDelegate.swift */; };
 		FB8300A71AD5B94C00740C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8300A51AD5B94C00740C65 /* Main.storyboard */; };
@@ -48,7 +49,6 @@
 		FB8300F21AD5D39500740C65 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8300F11AD5D39500740C65 /* LoginTextField.swift */; };
 		FBBFA42E1AD609A700E7313D /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA42D1AD609A700E7313D /* UdacityClient.swift */; };
 		FBBFA4371AD6AAEB00E7313D /* UdacityUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4361AD6AAEB00E7313D /* UdacityUser.swift */; };
-		FBBFA4391AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4381AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift */; };
 		FBBFA4471AD825E400E7313D /* StudentLocationMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFA4461AD825E400E7313D /* StudentLocationMKMapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +65,6 @@
 /* Begin PBXFileReference section */
 		FB0BB35C1ADD790E00F63328 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		FB0BB35E1ADD7ED000F63328 /* EnterLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLocationViewController.swift; sourceTree = "<group>"; };
-		FB4875071AD84A1C0014EB72 /* StudentLocationUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationUITableView.swift; sourceTree = "<group>"; };
 		FB6AB9941AE0021300A3CA8A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB6AB99D1AE01EC100A3CA8A /* OnTheMap Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnTheMap Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6AB9A01AE01EC100A3CA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +77,8 @@
 		FB6AB9BD1AE6A90E00A3CA8A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FB6AB9BE1AE6A90E00A3CA8A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FB6AB9C11AE6D83100A3CA8A /* UserPinsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPinsViewController.swift; sourceTree = "<group>"; };
+		FB6AB9C31AE8269D00A3CA8A /* StudentLocationUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationUITableView.swift; sourceTree = "<group>"; };
+		FB6AB9C81AE96A5300A3CA8A /* EnterURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterURLViewController.swift; sourceTree = "<group>"; };
 		FB81D3FA1ADEB91B007B2284 /* StudentLocationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClient.swift; sourceTree = "<group>"; };
 		FB83009C1AD5B94C00740C65 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8300A01AD5B94C00740C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		FB8300F11AD5D39500740C65 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		FBBFA42D1AD609A700E7313D /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		FBBFA4361AD6AAEB00E7313D /* UdacityUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UdacityUser.swift; path = ../UdacityUser.swift; sourceTree = "<group>"; };
-		FBBFA4381AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UdacityNSURLSessionExtension.swift; path = ../UdacityNSURLSessionExtension.swift; sourceTree = "<group>"; };
 		FBBFA4461AD825E400E7313D /* StudentLocationMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationMKMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,14 +151,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		FB4875041AD849C10014EB72 /* Table */ = {
-			isa = PBXGroup;
-			children = (
-				FB4875071AD84A1C0014EB72 /* StudentLocationUITableView.swift */,
-			);
-			name = Table;
-			sourceTree = "<group>";
-		};
 		FB6AB99E1AE01EC100A3CA8A /* On The Map Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +166,14 @@
 				FB6AB9A01AE01EC100A3CA8A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB6AB9C51AE827AE00A3CA8A /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				FB6AB9C31AE8269D00A3CA8A /* StudentLocationUITableView.swift */,
+			);
+			name = Table;
 			sourceTree = "<group>";
 		};
 		FB81D3FC1ADEB921007B2284 /* Parse */ = {
@@ -214,7 +214,6 @@
 			children = (
 				FB8300A11AD5B94C00740C65 /* AppDelegate.swift */,
 				FB8300C21AD5BACC00740C65 /* Model */,
-				FBBFA4381AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift */,
 				FB8300C31AD5BAD200740C65 /* View */,
 				FB8300C41AD5BAD800740C65 /* Controller */,
 				FB83009F1AD5B94C00740C65 /* Supporting Files */,
@@ -254,9 +253,9 @@
 		FB8300C31AD5BAD200740C65 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FB4875041AD849C10014EB72 /* Table */,
 				FB4875031AD836450014EB72 /* Login */,
 				FB4875021AD836330014EB72 /* Map */,
+				FB6AB9C51AE827AE00A3CA8A /* Table */,
 				FB0BB35C1ADD790E00F63328 /* RoundedButton.swift */,
 			);
 			name = View;
@@ -271,6 +270,7 @@
 				FB6AB9C11AE6D83100A3CA8A /* UserPinsViewController.swift */,
 				FB0BB35E1ADD7ED000F63328 /* EnterLocationViewController.swift */,
 				FB6AB9B21AE53FFC00A3CA8A /* SelectLocationViewController.swift */,
+				FB6AB9C81AE96A5300A3CA8A /* EnterURLViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -476,12 +476,12 @@
 				FB6AB9B31AE53FFC00A3CA8A /* SelectLocationViewController.swift in Sources */,
 				FB81D3FB1ADEB91B007B2284 /* StudentLocationClient.swift in Sources */,
 				FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */,
+				FB6AB9C91AE96A5300A3CA8A /* EnterURLViewController.swift in Sources */,
 				FB8300A21AD5B94C00740C65 /* AppDelegate.swift in Sources */,
-				FBBFA4391AD6C8B800E7313D /* UdacityNSURLSessionExtension.swift in Sources */,
 				FB6AB9C21AE6D83100A3CA8A /* UserPinsViewController.swift in Sources */,
-				FB4875081AD84A1C0014EB72 /* StudentLocationUITableView.swift in Sources */,
 				FB6AB9AF1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift in Sources */,
 				FBBFA4371AD6AAEB00E7313D /* UdacityUser.swift in Sources */,
+				FB6AB9C41AE8269D00A3CA8A /* StudentLocationUITableView.swift in Sources */,
 				FBBFA4471AD825E400E7313D /* StudentLocationMKMapView.swift in Sources */,
 				FB0BB35F1ADD7ED000F63328 /* EnterLocationViewController.swift in Sources */,
 				FB8300F21AD5D39500740C65 /* LoginTextField.swift in Sources */,

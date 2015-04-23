@@ -11,7 +11,7 @@ import Alamofire
 
 class UdacityClient {
     
-    var session: NSURLSession
+    var session: NSURLSession!
 
     var user : UdacityUser?
     
@@ -19,31 +19,31 @@ class UdacityClient {
         self.session = NSURLSession.sharedSession()
     }
     
-    func loginWithUsernameAndPassword(username: String, password: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
+    func loginWithUsernameAndPassword(username: String, password: String, completionHandler: (success: Bool, message: String?) -> Void) {
         loginAndExtractPublicData(Alamofire.request(Router.Login(username: username, password: password)), completionHandler: completionHandler)
     }
 
-    func loginWithFacebook(accessToken: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
+    func loginWithFacebook(accessToken: String, completionHandler: (success: Bool, message: String?) -> Void) {
         loginAndExtractPublicData(Alamofire.request(Router.FacebookLogin(accessTokenString: accessToken)), completionHandler: completionHandler)
     }
     
-    func loginAndExtractPublicData(request: Request, completionHandler: (success: Bool, errorString: String?) -> Void) {
-        request.validate()
+    func loginAndExtractPublicData(request: Request, completionHandler: (success: Bool, message: String?) -> Void) {
+        request.validate() //HTTP Response Code 200 - 299, otherwise there's an error
             .responseUdacityJSON() { request, response, JSON, error in
                 
                 if let error = error {
-                    completionHandler(success: false, errorString: "Network Error.")
+                    self.handleErrors(response, json: JSON, completionHandler: completionHandler)
                 } else {
                     
                     let account = JSON!["account"] as! [String:AnyObject]
                     let uniqueKey = account["key"] as! String
                     
                     Alamofire.request(Router.ReadPublicData(userId: uniqueKey))
-                        .validate()
+                        .validate() //HTTP Response Code 200 - 299
                         .responseUdacityJSON() { request, response, JSON, error in
                             
                             if let error = error {
-                                completionHandler(success: false, errorString: "Network Error")
+                                self.handleErrors(response, json: JSON, completionHandler: completionHandler)
                             } else {
                                 let user = JSON!["user"] as! [String: AnyObject]
                                 let firstName = user["first_name"] as! String
@@ -52,12 +52,30 @@ class UdacityClient {
                                 let udacityUser = UdacityUser(userID: uniqueKey, firstName: firstName, lastName: lastName)
                                 self.user = udacityUser
                                 
-                                completionHandler(success: true, errorString: nil)
+                                completionHandler(success: true, message: nil)
                             }
                     }
                 }
         }
 
+    }
+    
+    func handleErrors(response: NSHTTPURLResponse?, json: [String:AnyObject]?, completionHandler: (success: Bool, message: String?) -> Void) {
+        if let response = response {
+            switch response.statusCode {
+            case 400:
+                var message = json!["error"] as! String
+                message = message.stringByReplacingOccurrencesOfString("trails.Error 400: ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                completionHandler(success: false, message: message)
+            case 403:
+                var message = json!["error"] as! String
+                completionHandler(success: false, message: message)
+            default:
+                completionHandler(success: false, message: "Unknown Server Error.")
+            }
+        } else {
+            completionHandler(success: false, message: "Network Error. Please check your connection.")
+        }
     }
     
     class func sharedInstance() -> UdacityClient {
@@ -119,7 +137,8 @@ class UdacityClient {
 extension Request {
     class func UdacityJSONSerializer() -> Serializer {
         return { (request, response, data) in
-            if data == nil {
+            
+            if data == nil || data?.length == 0 {
                 return (nil, nil)
             }
             
@@ -128,7 +147,11 @@ extension Request {
             var JSONSerializationError: NSError?
             let JSON = NSJSONSerialization.JSONObjectWithData(shiftedData, options: .AllowFragments, error: &JSONSerializationError) as! [String:AnyObject]
             
-            return (JSON, JSONSerializationError)
+            if let error = JSONSerializationError {
+                return (nil, NSError(domain: "com.jpgilchrist.OnTheMap", code: 1, userInfo: [ "message" : "Server Error. The server returned malformed data."]))
+            }
+            
+            return (JSON, nil)
         }
     }
     
