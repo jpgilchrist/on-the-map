@@ -44,6 +44,7 @@ class ListViewController: UIViewController {
         }
     }
     
+    //definitely could be more robust
     func alertWithMessage(message: String) {
         var controller = UIAlertController(title: "Download Error", message: message, preferredStyle: .Alert)
         controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

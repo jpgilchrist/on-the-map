@@ -46,6 +46,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //this could definitely be more robust, but I'm taking too much time on this project.
     func alertWithMessage(message: String) {
         var controller = UIAlertController(title: "Download Error", message: message, preferredStyle: .Alert)
         controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

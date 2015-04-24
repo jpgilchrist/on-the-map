@@ -38,11 +38,13 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //set defaults for inputs, etc.
         emailTextField.text = ""
         passwordTextField.text = ""
         debugLabel.text = ""
         activityIndicator.stopAnimating()
 
+        //if there's a facebook token get public data and navigate to next controller
         if let token = FBSDKAccessToken.currentAccessToken() {
             loginWithAccessToken(token)
         }

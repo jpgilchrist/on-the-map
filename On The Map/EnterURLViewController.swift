@@ -28,11 +28,6 @@ class EnterURLViewController: UIViewController {
         placemarkFormattedAddressLabel.text = placemark.formattedAddress
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func previewButtonTouchUpInside(sender: UIButton) {
         activityIndicatorView.hidden = false
