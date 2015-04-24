@@ -12,35 +12,38 @@ import JSONHelper
 
 public class StudentLocationClient {
     
+    var studentLocations: [StudentLocation]?
+    var usersLocations: [StudentLocation]?
+    
     /* Convenience Methods for StudentLocationClient */
     
-    public func readStudentLocations(limit: Int,
-        completionHandler: StudentLocationArrayCompletionHandler) {
+    public func refreshStudentLocations(limit: Int,
+        completionHandler: (success: Bool, message: String!) -> Void) {
             
             Alamofire.request(Router.ReadStudentLocations(limit: limit))
                 .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                     if let error = error {
-                        completionHandler(success: false, studentLocations: nil, error: error)
+                        self.handleErrors(response, json: JSON, completionHandler: completionHandler)
                     } else {
                         let json = JSON as! [String: AnyObject]
-                        var studentLocations: [StudentLocation]?
-                        studentLocations <-- json["results"]
+                    
+                        self.studentLocations <-- json["results"]
                         
-                        completionHandler(success: true, studentLocations: studentLocations, error: nil)
+                        completionHandler(success: true, message: nil)
                     }
             }
     }
     
     public func createStudentLocation(studentLocation: StudentLocation,
-        completionHandler: StudentLocationObjectCompletionHandler) {
+        completionHandler: (success: Bool, message: String!) -> Void) {
             
             Alamofire.request(Router.CreateStudentLocation(studentLocation.toDictionary()))
                 .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                     
                     if let error = error {
-                        completionHandler(success: false, studentLocation: nil, error: error)
+                        self.handleErrors(response, json: JSON, completionHandler: completionHandler)
                     } else {
                         let json = JSON as! [String: AnyObject]
                         var studentLocation = studentLocation
@@ -48,85 +51,57 @@ public class StudentLocationClient {
                         studentLocation.objectId <-- json["objectId"]
                         studentLocation.createdAt <-- (json["createdAt"], StudentLocation.DateFormatString)
                         
-                        completionHandler(success: true, studentLocation: studentLocation, error: nil)
-                    }
-            }
-    }
-    
-    public func updateStudentLocation(studentLocation: StudentLocation,
-        completionHandler: StudentLocationObjectCompletionHandler) {
-            
-            Alamofire.request(Router.UpdateStudentLocation(objectId: studentLocation.objectId!,
-                studentLocation.toDictionary()))
-                .validate()
-                .responseJSON(options: .AllowFragments) { request, response, JSON, error in
-             
-                    if let error = error {
-                        completionHandler(success: false, studentLocation: nil, error: error)
-                    } else {
-                        let json = JSON as! [String: AnyObject]
-                        var studentLocation = studentLocation
+                        self.studentLocations?.insert(studentLocation, atIndex: 0)
                         
-                        studentLocation.updatedAt <-- (json["updatedAt"], StudentLocation.DateFormatString)
-                        
-                        completionHandler(success: true, studentLocation: studentLocation, error: nil)
+                        completionHandler(success: true, message: nil)
                     }
             }
     }
     
     public func findStudentLocationsByUniqueKey(uniqueKey: String,
-        completionHandler: StudentLocationArrayCompletionHandler) {
+        completionHandler: (success: Bool, message: String!) -> Void) {
             
             Alamofire.request(Router.FindByUniqueKey(uniqueKey: uniqueKey))
                 .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                 
                     if let error = error {
-                        completionHandler(success: false, studentLocations: nil, error: error)
+                        self.handleErrors(response, json: JSON, completionHandler: completionHandler)
                     } else {
                         let json = JSON as! [String: AnyObject]
                         var studentLocations: [StudentLocation]?
                         studentLocations <-- json["results"]
                         
-                        completionHandler(success: true, studentLocations: studentLocations, error: nil)
+                        self.usersLocations = studentLocations
+                        
+                        completionHandler(success: true, message: nil)
                         
                     }
                     
-            }
-    }
-    
-    public func findStudentLocationByObjectId(objectId: String,
-        completionHandler: StudentLocationObjectCompletionHandler) {
-            
-            Alamofire.request(Router.FindByObjectId(objectId: objectId))
-                .validate()
-                .responseJSON(options: .AllowFragments) { request, response, JSON, error in
-                    
-                    if let error = error {
-                        completionHandler(success: false, studentLocation: nil, error: error)
-                    } else {
-
-                        let json = JSON as! [String: AnyObject]
-                        var studentLocation = StudentLocation(data: json)
-                        
-                        completionHandler(success: true, studentLocation: studentLocation, error: nil)
-                    }
             }
     }
     
     public func destroyStudentLocationByObjectId(objectId: String,
-        completionHandler: (success: Bool, error: NSError!) -> Void) {
+        completionHandler: (success: Bool, message: String!) -> Void) {
             
             Alamofire.request(Router.DestroyStudentLocation(objectId: objectId))
                 .validate()
                 .responseJSON(options: .AllowFragments) { request, response, JSON, error in
                     
                     if let error = error {
-                        completionHandler(success: false, error: error)
+                        self.handleErrors(response, json: JSON, completionHandler: completionHandler)
                     } else {
-                        completionHandler(success: true, error: nil)
+                        completionHandler(success: true, message: nil)
                     }
             }
+    }
+    
+    func handleErrors(response: NSHTTPURLResponse?, json: AnyObject?, completionHandler: (success: Bool, message: String!) -> Void) {
+        if let response = response {
+            completionHandler(success: false, message: "Server Error. \(response.statusCode)")
+        } else {
+            completionHandler(success: false, message: "Network Error. Please check your connection.")
+        }
     }
     
     public class func sharedInstance() -> StudentLocationClient {
@@ -200,6 +175,3 @@ public class StudentLocationClient {
         
     }
 }
-
-public typealias StudentLocationObjectCompletionHandler = (success: Bool, studentLocation: StudentLocation!, error: NSError!) -> Void
-public typealias StudentLocationArrayCompletionHandler  = (success: Bool, studentLocations: [StudentLocation]!, error: NSError!) -> Void

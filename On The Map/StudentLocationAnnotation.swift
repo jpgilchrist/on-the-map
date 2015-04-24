@@ -36,7 +36,7 @@ class StudentLocationAnnotation: NSObject, MKAnnotation {
     }
     
     var subtitle: String! {
-        return "\(self.studentLocation!.mediaURL!.absoluteString!)"
+        return "\(self.studentLocation?.mediaURL?.absoluteString!)"
     }
     
     override var description: String {

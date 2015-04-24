@@ -30,13 +30,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        debugLabel.text = ""
-        self.activityIndicator.stopAnimating()
-        
         /* setup facebook login button */
         facebookLoginButton.readPermissions = ["public_profile", "email"]
         facebookLoginButton.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        debugLabel.text = ""
+        activityIndicator.stopAnimating()
+
         if let token = FBSDKAccessToken.currentAccessToken() {
             loginWithAccessToken(token)
         }
@@ -61,10 +67,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUpButtonTouchUpInside(sender: UIButton) {
-        println("TODO: Implement signUpButtonTouchUpInside")
-        let controller = cancelableUIAlertController(title: "Sign Up Button", message: "TODO: Implement sign up button")
-        
-        self.presentViewController(controller, animated: true, completion: nil)
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://www.udacity.com/account/auth#!/signup")!)
     }
     
     /* Helper Function to return Alert Controller with single Cancel action */

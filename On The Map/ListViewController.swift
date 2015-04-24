@@ -12,6 +12,7 @@ class ListViewController: UIViewController {
 
     
     @IBOutlet weak var tableView: StudentLocationUITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,16 +29,25 @@ class ListViewController: UIViewController {
     }
     
     @IBAction func fetchAndUpdateStudentLocations() {
-        StudentLocationClient.sharedInstance().readStudentLocations(100) { success, studentLocations, errorString in
+        activityIndicator.startAnimating()
+        
+        StudentLocationClient.sharedInstance().refreshStudentLocations(100) { success, message in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.tableView.studentLocations = studentLocations
                     self.tableView.reloadData()
                 }
             } else {
-                println("FAILURE \(errorString)")
+                self.alertWithMessage(message)
             }
+            
+            self.activityIndicator.stopAnimating()
         }
+    }
+    
+    func alertWithMessage(message: String) {
+        var controller = UIAlertController(title: "Download Error", message: message, preferredStyle: .Alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     func startListeningForMalformedURLNotification() {

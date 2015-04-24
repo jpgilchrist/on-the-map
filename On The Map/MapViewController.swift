@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: StudentLocationMKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,17 +29,27 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func fetchAndUpdateStudentLocations() {
-        self.mapView.removeAnnotations(self.mapView.annotations)
-        
-        StudentLocationClient.sharedInstance().readStudentLocations(100) { success, studentLocations, errorString in
+        activityIndicator.startAnimating()
+        StudentLocationClient.sharedInstance().refreshStudentLocations(100) { success, message in
             if success {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.mapView.addAnnotations(StudentLocation.toStudentAnnotations(studentLocations))
+                    
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    self.mapView.addAnnotations(StudentLocation
+                        .toStudentAnnotations(StudentLocationClient.sharedInstance().studentLocations!))
                 }
             } else {
-                println("FAILURE \(errorString)")
+                self.alertWithMessage(message)
             }
+            
+            self.activityIndicator.stopAnimating()
         }
+    }
+    
+    func alertWithMessage(message: String) {
+        var controller = UIAlertController(title: "Download Error", message: message, preferredStyle: .Alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     func startListeningForMalformedURLNotification() {

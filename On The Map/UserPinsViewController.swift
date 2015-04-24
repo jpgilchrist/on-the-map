@@ -10,22 +10,17 @@ import UIKit
 import FBSDKLoginKit
 
 class UserPinsViewController: UIViewController {
-    
-    var usersLocations:[StudentLocation]!
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    @IBOutlet weak var logoutButton: RoundedUIButton!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        usersLocations = [StudentLocation]()
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        facebookLoginButton.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -37,17 +32,28 @@ class UserPinsViewController: UIViewController {
     func fetchUsersStudentLocations() {
         if let uniqueKey = UdacityClient.sharedInstance().user?.userID {
          
-            StudentLocationClient.sharedInstance().findStudentLocationsByUniqueKey(uniqueKey) { success, locations, error in
+            activityIndicator.startAnimating()
+            
+            StudentLocationClient.sharedInstance().findStudentLocationsByUniqueKey(uniqueKey) { success, message in
                 
-                if let error = error {
-                    println("error getting users locations")
-                } else {
+                if success {
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.usersLocations = locations
                         self.tableView.reloadData()
                     }
+                } else {
+                    self.alertError(title: "Download Error", message: message)
                 }
+                self.activityIndicator.stopAnimating()
             }
+        }
+    }
+    
+    @IBAction func logoutButtonTouchUpInside(sender: UIButton) {
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            FBSDKAccessToken.setCurrentAccessToken(nil)
+        }
+        UdacityClient.sharedInstance().logout() {
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -60,20 +66,31 @@ class UserPinsViewController: UIViewController {
             editButton.title = "Cancel"
         }
     }
+    
+    func alertError(#title: String, message: String) {
+        var controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 }
 
 extension UserPinsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersLocations.count
+        if StudentLocationClient.sharedInstance().usersLocations == nil {
+            return 0
+        }
+        return StudentLocationClient.sharedInstance().usersLocations!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as! UITableViewCell
         
-        cell.textLabel?.text = usersLocations[indexPath.row].mapString
-        cell.detailTextLabel?.text = usersLocations[indexPath.row].mediaURL?.absoluteString
+        let location = StudentLocationClient.sharedInstance().usersLocations![indexPath.row]
+        
+        cell.textLabel?.text = location.mapString
+        cell.detailTextLabel?.text = location.mediaURL?.absoluteString
         
         return cell
     }
@@ -81,34 +98,25 @@ extension UserPinsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == .Delete {
-            let locationToDelete = self.usersLocations[indexPath.row]
+            self.activityIndicator.startAnimating()
             
-            tableView.beginUpdates()
+            let locationToDelete = StudentLocationClient.sharedInstance().usersLocations![indexPath.row]
             
-            self.usersLocations.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-            tableView.endUpdates()
-            
-            StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId(locationToDelete.objectId!) { success, error in
+            StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId(locationToDelete.objectId!) { success, message in
                 
-                if let error = error {
-                    println("Error deleting \(error)")
+                if success {
+                    tableView.beginUpdates()
+                    
+                    StudentLocationClient.sharedInstance().usersLocations!.removeAtIndex(indexPath.row)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    
+                    tableView.endUpdates()                    
                 } else {
-                    self.fetchUsersStudentLocations()
+                    self.alertError(title: "Delete Error", message: message)
                 }
+                
+                self.activityIndicator.stopAnimating()
             }
         }
-    }
-}
-
-extension UserPinsViewController: FBSDKLoginButtonDelegate {
- 
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        //this shouldn't happen...
-    }
-    
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

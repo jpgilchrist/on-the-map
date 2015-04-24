@@ -110,21 +110,21 @@ class StudentLocationClientTests: XCTestCase {
 //        }
 //    }
     
-    func testDestroyStudentLocationByObjectId() {
-        
-        let exp = expectationWithDescription("StudentLocationClientTests.testDestroyStudentLocationByObjectId")
-        
-        StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId("Ir5wfOucEF") { success, error in
-            XCTAssertNil(error, "\(error)")
-            
-            println("RESULT \(success) \(error)")
-            
-            exp.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(5) { error in
-            XCTAssertNil(error, "there were errors")
-        }
-    }
+//    func testDestroyStudentLocationByObjectId() {
+//        
+//        let exp = expectationWithDescription("StudentLocationClientTests.testDestroyStudentLocationByObjectId")
+//        
+//        StudentLocationClient.sharedInstance().destroyStudentLocationByObjectId("Ir5wfOucEF") { success, error in
+//            XCTAssertNil(error, "\(error)")
+//            
+//            println("RESULT \(success) \(error)")
+//            
+//            exp.fulfill()
+//        }
+//        
+//        waitForExpectationsWithTimeout(5) { error in
+//            XCTAssertNil(error, "there were errors")
+//        }
+//    }
     
 }

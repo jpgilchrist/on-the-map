@@ -26,6 +26,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Roboto-Thin.ttf">
             <string>Roboto-Thin</string>
@@ -221,8 +222,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-ef-Joq">
+                                <rect key="frame" x="547" y="72" width="37" height="37"/>
+                                <color key="color" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bd8-ef-Joq" firstAttribute="top" secondItem="Mjz-Ep-ufh" secondAttribute="bottom" constant="8" symbolic="YES" id="Aox-E3-cgq"/>
+                            <constraint firstItem="Bd8-ef-Joq" firstAttribute="trailing" secondItem="oaE-12-bee" secondAttribute="trailingMargin" id="FKi-Wv-rOQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="V79-wZ-TIZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="Ba7-FR-bLf">
@@ -237,6 +246,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Bd8-ef-Joq" id="Kr1-0L-KCw"/>
                         <outlet property="tableView" destination="zWn-3i-o6j" id="aoN-Ze-aay"/>
                     </connections>
                 </viewController>
@@ -259,11 +269,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dTH-dK-VKc" customClass="StudentLocationMKMapView" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gHO-G6-OF9">
+                                <rect key="frame" x="547" y="72" width="37" height="37"/>
+                                <color key="color" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dTH-dK-VKc" secondAttribute="trailing" id="1FW-Pm-i6y"/>
+                            <constraint firstItem="gHO-G6-OF9" firstAttribute="trailing" secondItem="8gM-H9-vTV" secondAttribute="trailingMargin" id="FQU-sJ-5Vz"/>
                             <constraint firstAttribute="bottom" secondItem="dTH-dK-VKc" secondAttribute="bottom" id="NAf-UR-Tgr"/>
+                            <constraint firstItem="gHO-G6-OF9" firstAttribute="top" secondItem="j8n-aP-s3S" secondAttribute="bottom" constant="8" symbolic="YES" id="esD-aY-OBl"/>
                             <constraint firstItem="dTH-dK-VKc" firstAttribute="leading" secondItem="8gM-H9-vTV" secondAttribute="leading" id="pPy-dn-QsI"/>
                             <constraint firstItem="dTH-dK-VKc" firstAttribute="top" secondItem="8gM-H9-vTV" secondAttribute="top" id="r7G-oJ-uqK"/>
                         </constraints>
@@ -281,6 +297,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="gHO-G6-OF9" id="Yvm-pD-4bk"/>
                         <outlet property="mapView" destination="dTH-dK-VKc" id="2dv-Ug-drO"/>
                     </connections>
                 </viewController>
@@ -821,12 +838,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08m-w1-f90" customClass="FBSDKLoginButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08m-w1-f90" customClass="RoundedUIButton" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="16" y="513" width="568" height="30"/>
-                                <state key="normal" title="Facebook Login Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButtonTouchUpInside:" destination="pys-Ew-ey2" eventType="touchUpInside" id="uQY-qf-f4P"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lXM-EM-0xE">
+                                <rect key="frame" x="547" y="72" width="37" height="37"/>
+                                <color key="color" red="0.90588235289999997" green="0.33333333329999998" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -835,7 +861,9 @@
                             <constraint firstAttribute="trailing" secondItem="mEr-LD-6sA" secondAttribute="trailing" id="TS1-yL-01f"/>
                             <constraint firstItem="08m-w1-f90" firstAttribute="centerX" secondItem="mEr-LD-6sA" secondAttribute="centerX" id="Vft-5c-Zv1"/>
                             <constraint firstItem="mEr-LD-6sA" firstAttribute="leading" secondItem="VLe-Kv-WLw" secondAttribute="leading" id="fma-M7-WfT"/>
+                            <constraint firstItem="lXM-EM-0xE" firstAttribute="trailing" secondItem="08m-w1-f90" secondAttribute="trailing" id="ia6-Q5-56d"/>
                             <constraint firstItem="EQ0-X8-YQO" firstAttribute="top" secondItem="08m-w1-f90" secondAttribute="bottom" constant="8" symbolic="YES" id="iem-YI-lDh"/>
+                            <constraint firstItem="lXM-EM-0xE" firstAttribute="top" secondItem="Ecb-lT-S23" secondAttribute="bottom" constant="8" symbolic="YES" id="jHr-IY-dCa"/>
                             <constraint firstItem="08m-w1-f90" firstAttribute="top" secondItem="mEr-LD-6sA" secondAttribute="bottom" constant="8" symbolic="YES" id="wSn-CK-1mQ"/>
                         </constraints>
                     </view>
@@ -852,8 +880,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="lXM-EM-0xE" id="hye-2I-Wgv"/>
                         <outlet property="editButton" destination="1fR-Og-hgP" id="Ot0-36-CMN"/>
-                        <outlet property="facebookLoginButton" destination="08m-w1-f90" id="XNj-97-vKw"/>
+                        <outlet property="logoutButton" destination="08m-w1-f90" id="7OV-Bf-NfH"/>
                         <outlet property="tableView" destination="mEr-LD-6sA" id="qYW-Dc-NdN"/>
                     </connections>
                 </viewController>
@@ -907,6 +936,6 @@
         <image name="udacity" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mDp-2E-llE"/>
+        <segue reference="NtU-ZH-I4c"/>
     </inferredMetricsTieBreakers>
 </document>

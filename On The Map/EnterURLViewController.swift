@@ -62,12 +62,12 @@ class EnterURLViewController: UIViewController {
                 latitude: Float(placemark.location.coordinate.latitude),
                 longitude: Float(placemark.location.coordinate.longitude))
             
-            StudentLocationClient.sharedInstance().createStudentLocation(studentLocation) { success, location, error in
+            StudentLocationClient.sharedInstance().createStudentLocation(studentLocation) { success, message in
                 
                 if success {
                     self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
                 } else {
-                    self.alertServerError(error)
+                    self.alertStudnetLocationClientWithMessage(message!)
                 }
                 
                 self.activityIndicatorView.hidden = true
@@ -92,12 +92,10 @@ class EnterURLViewController: UIViewController {
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
-    func alertServerError(error: NSError) {
+    func alertStudnetLocationClientWithMessage(message: String) {
         self.activityIndicatorView.hidden = true
         
-        println(error)
-
-        var controller = UIAlertController(title: "Server Error", message: "There was a server error!", preferredStyle: .Alert)
+        var controller = UIAlertController(title: "Oops.", message: message, preferredStyle: .Alert)
         
         controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         

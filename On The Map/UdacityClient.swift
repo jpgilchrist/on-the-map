@@ -19,6 +19,12 @@ class UdacityClient {
         self.session = NSURLSession.sharedSession()
     }
     
+    func logout(completionHandler: () -> Void) {
+        self.session = nil
+        self.user = nil
+        completionHandler()
+    }
+    
     func loginWithUsernameAndPassword(username: String, password: String, completionHandler: (success: Bool, message: String?) -> Void) {
         loginAndExtractPublicData(Alamofire.request(Router.Login(username: username, password: password)), completionHandler: completionHandler)
     }
