@@ -10,7 +10,6 @@
 		FB0BB35D1ADD790E00F63328 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0BB35C1ADD790E00F63328 /* RoundedButton.swift */; };
 		FB0BB35F1ADD7ED000F63328 /* EnterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0BB35E1ADD7ED000F63328 /* EnterLocationViewController.swift */; };
 		FB6AB9971AE0078100A3CA8A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9941AE0021300A3CA8A /* Alamofire.framework */; };
-		FB6AB9A91AE020B900A3CA8A /* StudentLocationClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */; };
 		FB6AB9AB1AE0244A00A3CA8A /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */; };
 		FB6AB9AD1AE02F3D00A3CA8A /* JSONHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */; };
 		FB6AB9AF1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AB9AE1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift */; };
@@ -68,7 +67,6 @@
 		FB6AB9941AE0021300A3CA8A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB6AB99D1AE01EC100A3CA8A /* OnTheMap Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnTheMap Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6AB9A01AE01EC100A3CA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationClientTests.swift; sourceTree = "<group>"; };
 		FB6AB9AA1AE0244A00A3CA8A /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		FB6AB9AC1AE02F3D00A3CA8A /* JSONHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONHelper.framework; path = Carthage/Build/iOS/JSONHelper.framework; sourceTree = "<group>"; };
 		FB6AB9AE1AE2B41C00A3CA8A /* StudentLocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationAnnotation.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 		FB6AB99E1AE01EC100A3CA8A /* On The Map Tests */ = {
 			isa = PBXGroup;
 			children = (
-				FB6AB9A81AE020B900A3CA8A /* StudentLocationClientTests.swift */,
 				FB6AB99F1AE01EC100A3CA8A /* Supporting Files */,
 			);
 			path = "On The Map Tests";
@@ -460,7 +457,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB6AB9A91AE020B900A3CA8A /* StudentLocationClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
