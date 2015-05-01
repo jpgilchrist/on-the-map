@@ -14,9 +14,11 @@ class StudentLocationMKMapView: MKMapView, MKMapViewDelegate {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        /* NOTE: Found that it was necessary to define delegate within the class so we have access to self (i.e., hte mapView) and therefore dequeueReusableAnnotationViewWithIdentifer */
         self.delegate = self
     }
+    
+    
+    //MARK: - MKMapViewDelegate
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         

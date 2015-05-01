@@ -30,10 +30,11 @@ class MapViewController: UIViewController {
     
     @IBAction func fetchAndUpdateStudentLocations() {
         activityIndicator.startAnimating()
+        
         StudentLocationClient.sharedInstance().refreshStudentLocations(100) { success, message in
             if success {
+                /* run updates to annotations on main queue */
                 dispatch_async(dispatch_get_main_queue()) {
-                    
                     self.mapView.removeAnnotations(self.mapView.annotations)
                     self.mapView.addAnnotations(StudentLocation
                         .toStudentAnnotations(StudentLocationClient.sharedInstance().studentLocations!))
@@ -45,8 +46,8 @@ class MapViewController: UIViewController {
             self.activityIndicator.stopAnimating()
         }
     }
-    
-    //this could definitely be more robust, but I'm taking too much time on this project.
+
+    /* simple alert for download related errors */
     func alertWithMessage(message: String) {
         var controller = UIAlertController(title: "Download Error", message: message, preferredStyle: .Alert)
         controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -61,6 +62,7 @@ class MapViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "MalformedURL", object: nil)
     }
     
+    /* handles the MalformedURL notification dispatched by the StudnetLocationAnnotation */
     func handleMalformedURL(notification: NSNotification) {
         
         var message: String!

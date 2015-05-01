@@ -24,6 +24,7 @@ class EnterURLViewController: UIViewController {
         super.viewDidLoad()
         
         webView.delegate = self
+        urlTextField.delegate = self
         
         placemarkFormattedAddressLabel.text = placemark.formattedAddress
 
@@ -110,5 +111,12 @@ extension EnterURLViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicatorView.hidden = true
         webView.hidden = false
+    }
+}
+
+extension EnterURLViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

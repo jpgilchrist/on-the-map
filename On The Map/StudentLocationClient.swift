@@ -115,6 +115,7 @@ public class StudentLocationClient {
     private enum Router: URLRequestConvertible {
         static let baseURLString = "https://api.parse.com/1/classes"
         
+        /* the routes availabel via the client */
         case CreateStudentLocation([String: AnyObject])
         case ReadStudentLocations(limit: Int)
         case UpdateStudentLocation(objectId: String, [String: AnyObject])
@@ -122,6 +123,7 @@ public class StudentLocationClient {
         case FindByUniqueKey(uniqueKey: String)
         case FindByObjectId(objectId: String)
         
+        /* computed variable that determines the method of the request based on the route */
         var method: Alamofire.Method {
             switch self {
             case .CreateStudentLocation:
@@ -135,6 +137,7 @@ public class StudentLocationClient {
             }
         }
         
+        /* computed variable that returns the path to append to the baseURL for the route */
         var path: String {
             switch self {
             case .CreateStudentLocation, .ReadStudentLocations, .FindByUniqueKey:
@@ -148,16 +151,20 @@ public class StudentLocationClient {
             }
         }
         
+        /* computed variable that builds the specific reqeust for the route */
         var URLRequest: NSURLRequest {
             let URL = NSURL(string: Router.baseURLString)!
+            
             let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
             mutableURLRequest.HTTPMethod = method.rawValue
             
+            /* add keys for the parse client */
             mutableURLRequest.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr",
                 forHTTPHeaderField: "X-Parse-Application-Id")
             mutableURLRequest.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY",
                 forHTTPHeaderField: "X-Parse-REST-API-Key")
             
+            /* encodes data to the request based on the route */
             switch self {
             case .CreateStudentLocation(let parameters):
                 return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0

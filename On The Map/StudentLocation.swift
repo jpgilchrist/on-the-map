@@ -36,6 +36,7 @@ public struct StudentLocation: Deserializable, Printable {
         self.longitude = longitude
     }
     
+    /* constructor that uses JSONHelper library to inject values from the dictionary into the attributes */
     public init(data: [String: AnyObject]) {
         objectId  <-- data["objectId"]
         uniqueKey <-- data["uniqueKey"]
@@ -50,6 +51,7 @@ public struct StudentLocation: Deserializable, Printable {
         ACL <-- data["ACL"]
     }
     
+    /* converts the instance to a dictionary */
     public func toDictionary() -> [String: AnyObject] {
         var dictionary = [String: AnyObject]()
 
@@ -72,16 +74,19 @@ public struct StudentLocation: Deserializable, Printable {
         return dictionary
     }
     
+    /* simple description for debugging */
     public var description: String {
         let data = NSJSONSerialization.dataWithJSONObject(self.toDictionary(), options: nil, error: nil)
         let prettyPrinted: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments, error: nil)!
         return "\(prettyPrinted)"
     }
     
+    /* convenience function returns a StudentLocationAnnotation representation for the MKMapView */
     func asStudentAnnotation() -> StudentLocationAnnotation {
         return StudentLocationAnnotation(studentLocation: self)
     }
     
+    /* convenience funciton to convert array of StudentLocation to array of StudentLocaitonAnnotation ofr MKMapView */
     static func toStudentAnnotations(studentLocations: [StudentLocation]) -> [StudentLocationAnnotation] {
         var studentLocationAnnotations = [StudentLocationAnnotation]()
         for studentLocation in studentLocations {
@@ -91,6 +96,7 @@ public struct StudentLocation: Deserializable, Printable {
     }
 }
 
+/* convenience exetnsion to add fullName to the instance */
 extension StudentLocation {
     var fullName: String {
         return "\(firstName!) \(lastName!)"
